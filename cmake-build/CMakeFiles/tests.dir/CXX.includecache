@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ilyanyrkov/Technopark_C-C-_solutions/project/include/CheckInput.h
+string.h
+-
+stdio.h
+-
+ctype.h
+-
+
+/home/ilyanyrkov/Technopark_C-C-_solutions/project/include/Person.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+CheckInput.h
+/home/ilyanyrkov/Technopark_C-C-_solutions/project/include/CheckInput.h
+
+/home/ilyanyrkov/Technopark_C-C-_solutions/project/tests/test.cpp
+gtest/gtest.h
+/home/ilyanyrkov/Technopark_C-C-_solutions/project/tests/gtest/gtest.h
+../include/Person.h
+/home/ilyanyrkov/Technopark_C-C-_solutions/project/include/Person.h
+../include/CheckInput.h
+/home/ilyanyrkov/Technopark_C-C-_solutions/project/include/CheckInput.h
+
