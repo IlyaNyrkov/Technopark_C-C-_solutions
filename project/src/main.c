@@ -8,7 +8,8 @@ int show_person_info(Person* person) {
         person->name, person->surname, person->role, person->importance);
 }
 
-int show_info_depending(Person* people, size_t n, char name[20], char surname[30], char role[15]) {
+int show_info_depending(Person* people, size_t n, char name[NAME_SIZE],
+    char surname[SURNAME_SIZE], char role[ROLE_SIZE]) {
     if (people == NULL) {
         return MEM_ALLOC_ERR;
     }
@@ -29,7 +30,7 @@ int show_info_depending(Person* people, size_t n, char name[20], char surname[30
 }
 
 int main(int argc, char* argv[]) {
-    char people_count[5];  // participants count and level of importance is in [0; 10000)
+    char people_count[DEF_NUM_SIZE];  // participants count and level of importance is in [0; 10000)
     do {
         printf("Enter count of project participants: ");
         scanf("%4s", people_count);
@@ -41,7 +42,7 @@ int main(int argc, char* argv[]) {
         printf("Error: cannot alloc memory for participants\n");
         return MEM_ALLOC_ERR;
     }
-    char* person_buffer = malloc(80 * sizeof(char));
+    char* person_buffer = malloc(CMD_LINE_SIZE * sizeof(char));
     if (person_buffer == NULL) {
         printf("Can't alloc memory for person info buffer\n");
         free(people);
@@ -55,27 +56,27 @@ int main(int argc, char* argv[]) {
             free(person_buffer);
             return MEM_ALLOC_ERR;
         }
-        char name[20];
-        char surname[30];
-        char role[15];
+        char name[NAME_SIZE];
+        char surname[SURNAME_SIZE];
+        char role[ROLE_SIZE];
         int importance_level;
         do {
             printf("Enter %dst person's data, format is:  name;surname;role;importance\n", i+1);
             scanf("%79s", person_buffer);
         } while (parse_person_data(person_buffer, name, surname, role, &importance_level) ==
             WRONG_PERSON_DATA_ERR);
-        add_person_info(&people[i], name, role, surname, importance_level);
+            add_person_info(&people[i], name, role, surname, importance_level);
     }
     free(person_buffer);
     person_buffer = NULL;
-    char* command_buffer = malloc(80 * sizeof(char));
+    char* command_buffer = malloc(CMD_LINE_SIZE * sizeof(char));
     if (command_buffer == NULL) {
         printf("Can't alloc memory for command buffer\n");
         return MEM_ALLOC_ERR;
     }
-    char name[20] = "\n";
-    char surname[30] = "\n";
-    char role[15] = "\n";
+    char name[NAME_SIZE] = "\n";
+    char surname[SURNAME_SIZE] = "\n";
+    char role[ROLE_SIZE] = "\n";
     do {
         printf("Enter your search criteria: Format is name;surname;role\n");
         scanf("%79s", command_buffer);

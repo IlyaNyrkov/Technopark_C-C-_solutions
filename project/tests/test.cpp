@@ -14,9 +14,9 @@ TEST(person_memory_allocation, malloc_test) {
 
 TEST(person_memory_allocation, fill_after_alloc) {
     Person* person = (Person*)malloc(sizeof(Person));
-    const char name[20] = "maxim";
-    const char surname[30] = "alexeevich";
-    const char role[15] = "developer";
+    const char name[NAME_SIZE] = "maxim";
+    const char surname[SURNAME_SIZE] = "alexeevich";
+    const char role[ROLE_SIZE] = "developer";
     int importance = 100;
 
     EXPECT_EQ(mem_alloc_person(person), 0);
@@ -39,16 +39,16 @@ TEST(person_memory_allocation, fill_after_alloc) {
 
 TEST(person_memory_free, person_and_fields_exist) {
     Person* person = (Person*)malloc(sizeof(Person));
-    person->name = (char*)malloc(20 * sizeof(char));
-    person->surname = (char*)malloc(30 * sizeof(char));
-    person->role = (char*)malloc(15 * sizeof(char));
+    person->name = (char*)malloc(NAME_SIZE * sizeof(char));
+    person->surname = (char*)malloc(SURNAME_SIZE * sizeof(char));
+    person->role = (char*)malloc(ROLE_SIZE * sizeof(char));
     EXPECT_EQ(mem_free_person(person), 0);
     free(person);
 }
 
 TEST(person_memory_free, person_and_one_filled_exist) {
     Person* person = (Person*)malloc(sizeof(Person));
-    person->name = (char*)malloc(20 * sizeof(char));
+    person->name = (char*)malloc(NAME_SIZE * sizeof(char));
     person->surname = NULL;
     person->role = NULL;
     char* copy_name = person->name;
@@ -59,11 +59,11 @@ TEST(person_memory_free, person_and_one_filled_exist) {
 
 TEST(person_memory_free, person_all_fields_exist) {
     Person* person = (Person*)malloc(sizeof(Person));
-    person->name = (char*)malloc(20 * sizeof(char));
+    person->name = (char*)malloc(NAME_SIZE * sizeof(char));
     char* copy_name = person->name;
-    person->surname = (char*)malloc(30 * sizeof(char));
+    person->surname = (char*)malloc(SURNAME_SIZE * sizeof(char));
     char* copy_surname = person->surname;
-    person->role = (char*)malloc(15 * sizeof(char));
+    person->role = (char*)malloc(ROLE_SIZE * sizeof(char));
     char* copy_role = person->role;
     mem_free_person(person);
     EXPECT_NE(person->name, copy_name);
@@ -74,10 +74,10 @@ TEST(person_memory_free, person_all_fields_exist) {
 
 TEST(person_add_data, null_person) {
     Person* person = NULL;
-    char name[20] = "maxim";
-    char surname[30] = "alexeevich";
-    char role[15] = "developer";
-    ASSERT_EQ(add_person_info(person, name, role, surname, 100), MEM_ALLOC_ERR);
+    char name[NAME_SIZE] = "maxim";
+    char surname[SURNAME_SIZE] = "alexeevich";
+    char role[ROLE_SIZE] = "developer";
+    ASSERT_EQ(add_person_info(person, name, role, surname, 100), ADD_PERSON_DATA_ERR);
 }
 
 TEST(person_add_data, null_fields_person) {
@@ -85,10 +85,10 @@ TEST(person_add_data, null_fields_person) {
     person->name = NULL;
     person->surname = NULL;
     person->role = NULL;
-    char name[20] = "maxim";
-    char surname[30] = "alexeevich";
-    char role[15] = "developer";
-    EXPECT_EQ(add_person_info(person, name, role, surname, 100), MEM_ALLOC_ERR);
+    char name[NAME_SIZE] = "maxim";
+    char surname[SURNAME_SIZE] = "alexeevich";
+    char role[ROLE_SIZE] = "developer";
+    EXPECT_EQ(add_person_info(person, name, role, surname, 100), ADD_PERSON_DATA_ERR);
     free(person);
 }
 
@@ -123,15 +123,15 @@ TEST(Check_number, not_a_number) {
 }
 
 TEST(Parse_person_data, all_fields_exist) {
-    char buffer[60] = "Ilya;Nyrkov;Developer;100";
-    char name_result[5] = "Ilya";
-    char surname_result[7] = "Nyrkov";
-    char role_result[10] = "Developer";
+    char buffer[CMD_LINE_SIZE] = "Ilya;Nyrkov;Developer;100";
+    char name_result[NAME_SIZE] = "Ilya";
+    char surname_result[SURNAME_SIZE] = "Nyrkov";
+    char role_result[ROLE_SIZE] = "Developer";
     int importance_result = 100;
 
-    char name[20];
-    char surname[30];
-    char role[15];
+    char name[NAME_SIZE];
+    char surname[SURNAME_SIZE];
+    char role[ROLE_SIZE];
     int importance;
     parse_person_data(buffer, name, surname, role, &importance);
     ASSERT_TRUE(strcmp(name, name_result) == 0 &&
@@ -140,167 +140,183 @@ TEST(Parse_person_data, all_fields_exist) {
 }
 
 TEST(Parse_person_data, fields_missing_1) {
-    char name[20];
-    char surname[30];
-    char role[15];
+    char name[NAME_SIZE];
+    char surname[SURNAME_SIZE];
+    char role[ROLE_SIZE];
     int importance;
-    char buffer[60] = ";Nyrkov;Developer;100";
+    char buffer[CMD_LINE_SIZE] = ";Nyrkov;Developer;100";
     ASSERT_EQ(parse_person_data(buffer, name, surname, role, &importance),
         WRONG_PERSON_DATA_ERR);
 }
 
 TEST(Parse_person_data, fields_missing_2_second_fourth) {
-    char name[20];
-    char surname[30];
-    char role[15];
+    char name[NAME_SIZE];
+    char surname[SURNAME_SIZE];
+    char role[ROLE_SIZE];
     int importance;
-    char buffer[60] = "Ilya;;Developer;";
+    char buffer[CMD_LINE_SIZE] = "Ilya;;Developer;";
     ASSERT_EQ(parse_person_data(buffer, name, surname, role, &importance),
         WRONG_PERSON_DATA_ERR);
 }
 
 TEST(Parse_person_data, fields_missing_3_all) {
-    char name[20];
-    char surname[30];
-    char role[15];
+    char name[NAME_SIZE];
+    char surname[SURNAME_SIZE];
+    char role[ROLE_SIZE];
     int importance;
-    char buffer[60] = ";;;";
+    char buffer[CMD_LINE_SIZE] = ";;;";
     ASSERT_EQ(parse_person_data(buffer, name, surname, role, &importance),
         WRONG_PERSON_DATA_ERR);
 }
 
 TEST(Parse_person_data, wrong_importance_1) {
-    char name[20];
-    char surname[30];
-    char role[15];
+    char name[NAME_SIZE];
+    char surname[SURNAME_SIZE];
+    char role[ROLE_SIZE];
     int importance;
-    char buffer[60] = "Ilya;Nyrkov;Developer;vcs";
+    char buffer[CMD_LINE_SIZE] = "Ilya;Nyrkov;Developer;vcs";
     ASSERT_EQ(parse_person_data(buffer, name, surname, role, &importance),
         WRONG_PERSON_DATA_ERR);
 }
 
 TEST(Parse_person_data, wrong_importance_2) {
-    char name[20];
-    char surname[30];
-    char role[15];
+    char name[NAME_SIZE];
+    char surname[SURNAME_SIZE];
+    char role[ROLE_SIZE];
     int importance;
-    char buffer[60] = "Ilya;Nyrkov;Developer;-100";
+    char buffer[CMD_LINE_SIZE] = "Ilya;Nyrkov;Developer;-100";
     ASSERT_EQ(parse_person_data(buffer, name, surname, role, &importance),
         WRONG_PERSON_DATA_ERR);
 }
 
 TEST(Parse_person_data, wrong_importance_3) {
-    char name[20];
-    char surname[30];
-    char role[15];
+    char name[NAME_SIZE];
+    char surname[SURNAME_SIZE];
+    char role[ROLE_SIZE];
     int importance;
-    char buffer[60] = "Ilya;Nyrkov;Developer;100000";
+    char buffer[CMD_LINE_SIZE] = "Ilya;Nyrkov;Developer;100000";
     ASSERT_EQ(parse_person_data(buffer, name, surname, role, &importance),
         WRONG_PERSON_DATA_ERR);
 }
 
 TEST(Parse_person_data, wrong_semicolon_count) {
-    char name[20];
-    char surname[30];
-    char role[15];
+    char name[NAME_SIZE];
+    char surname[SURNAME_SIZE];
+    char role[ROLE_SIZE];
     int importance;
-    char buffer[60] = "Ilya;NyrkovDeveloper;100000";
+    char buffer[CMD_LINE_SIZE] = "Ilya;NyrkovDeveloper;100000";
     ASSERT_EQ(parse_person_data(buffer, name, surname, role, &importance),
         WRONG_PERSON_DATA_ERR);
 }
 
 TEST(Parse_person_data, cat_on_keyboard) {
-    char name[20];
-    char surname[30];
-    char role[15];
+    char name[NAME_SIZE];
+    char surname[SURNAME_SIZE];
+    char role[ROLE_SIZE];
     int importance;
-    char buffer[60] = "et12312gbrHebnheerhr";
+    char buffer[CMD_LINE_SIZE] = "et12312gbrHebnheerhr";
     ASSERT_EQ(parse_person_data(buffer, name, surname, role, &importance),
         WRONG_PERSON_DATA_ERR);
 }
 
 TEST(Parse_person_data, elon_musk_son_name) {
-    char name[20];
-    char surname[30];
-    char role[15];
+    char name[NAME_SIZE];
+    char surname[SURNAME_SIZE];
+    char role[ROLE_SIZE];
     int importance;
-    char buffer[60] = "X AE A-12;MUSK;Developer;1000";
+    char buffer[CMD_LINE_SIZE] = "X AE A-12;MUSK;Developer;1000";
     ASSERT_EQ(parse_person_data(buffer, name, surname, role, &importance),
         WRONG_PERSON_DATA_ERR);
 }
 
 TEST(Parse_command, correct_input) {
-    char command_line[60] = "Ilya;Nyrkov;Developer";
-    char name_res[20] = "Ilya";
-    char surname_res[30] = "Nyrkov";
-    char role_res[15] = "Developer";
-    char name[20];
-    char surname[30];
-    char role[15];
+    char command_line[CMD_LINE_SIZE] = "Ilya;Nyrkov;Developer";
+    char name_res[NAME_SIZE] = "Ilya";
+    char surname_res[SURNAME_SIZE] = "Nyrkov";
+    char role_res[ROLE_SIZE] = "Developer";
+    char name[NAME_SIZE];
+    char surname[SURNAME_SIZE];
+    char role[ROLE_SIZE];
     ASSERT_TRUE(parse_command(command_line, name, surname, role) == 0);
     ASSERT_TRUE((strcmp(name, name_res) == 0) && (strcmp(surname, surname_res) == 0) &&
         (strcmp(role, role_res) == 0));
 }
 
 TEST(Parse_command, first_parameter_missing) {
-    char command_line[80] = ";Nyrkov;Developer";
-    char name_res[20] = "\n";
-    char surname_res[30] = "Nyrkov";
-    char role_res[15] = "Developer";
-    char name[20] = "\n";
-    char surname[30] = "\n";
-    char role[15] = "\n";
+    char command_line[CMD_LINE_SIZE] = ";Nyrkov;Developer";
+    char name_res[NAME_SIZE] = "\n";
+    char surname_res[SURNAME_SIZE] = "Nyrkov";
+    char role_res[ROLE_SIZE] = "Developer";
+    char name[NAME_SIZE] = "\n";
+    char surname[SURNAME_SIZE] = "\n";
+    char role[ROLE_SIZE] = "\n";
     EXPECT_TRUE(parse_command(command_line, name, surname, role) == 0);
     EXPECT_TRUE((strcmp(name, name_res) == 0) && (strcmp(surname, surname_res) == 0) &&
         (strcmp(role, role_res) == 0));
 }
 
 TEST(Parse_command, second_parameter_missing) {
-    char command_line[80] = "Ilya;;Developer";
-    char name_res[20] = "Ilya";
-    char surname_res[30] = "\n";
-    char role_res[15] = "Developer";
-    char name[20] = "\n";
-    char surname[30] = "\n";
-    char role[15] = "\n";
+    char command_line[CMD_LINE_SIZE] = "Ilya;;Developer";
+    char name_res[NAME_SIZE] = "Ilya";
+    char surname_res[SURNAME_SIZE] = "\n";
+    char role_res[ROLE_SIZE] = "Developer";
+    char name[NAME_SIZE] = "\n";
+    char surname[SURNAME_SIZE] = "\n";
+    char role[ROLE_SIZE] = "\n";
     EXPECT_TRUE(parse_command(command_line, name, surname, role) == 0);
     EXPECT_TRUE((strcmp(name, name_res) == 0) && (strcmp(surname, surname_res) == 0) &&
         (strcmp(role, role_res) == 0));
 }
 
 TEST(Parse_command, third_parameter_missing) {
-    char command_line[80] = "Ilya;Nyrkov;";
-    char name_res[20] = "Ilya";
-    char surname_res[30] = "Nyrkov";
-    char role_res[15] = "\n";
-    char name[20] = "\n";
-    char surname[30] = "\n";
-    char role[15] = "\n";
+    char command_line[CMD_LINE_SIZE] = "Ilya;Nyrkov;";
+    char name_res[NAME_SIZE] = "Ilya";
+    char surname_res[SURNAME_SIZE] = "Nyrkov";
+    char role_res[ROLE_SIZE] = "\n";
+    char name[NAME_SIZE] = "\n";
+    char surname[SURNAME_SIZE] = "\n";
+    char role[ROLE_SIZE] = "\n";
     EXPECT_TRUE(parse_command(command_line, name, surname, role) == 0);
     EXPECT_TRUE((strcmp(name, name_res) == 0) && (strcmp(surname, surname_res) == 0) &&
         (strcmp(role, role_res) == 0));
 }
 
-TEST(parse_command, cat_on_keyboard) {
-    char command_line[80] = "ahnwyjrthstna54ntterhfb";
-    char name[20] = "\n";
-    char surname[30] = "\n";
-    char role[15] = "\n";
+TEST(parse_command, cat_on_keyboard_1) {
+    char command_line[CMD_LINE_SIZE] = "ahnwyjr4%th/stna54ntterhfb";
+    char name[NAME_SIZE] = "\n";
+    char surname[SURNAME_SIZE] = "\n";
+    char role[ROLE_SIZE] = "\n";
+    ASSERT_EQ(parse_command(command_line,name, surname, role), WRONG_COMMAND_ERR);
+}
+
+TEST(parse_command, cat_on_keyboard_2) {
+    char command_line[CMD_LINE_SIZE] = "ahnw]dfeg|4%th/stna54ntterhfb";
+    char name[NAME_SIZE] = "\n";
+    char surname[SURNAME_SIZE] = "\n";
+    char role[ROLE_SIZE] = "\n";
+    ASSERT_EQ(parse_command(command_line,name, surname, role), WRONG_COMMAND_ERR);
+}
+
+TEST(parse_command, empty) {
+    char command_line[CMD_LINE_SIZE] = "";
+    char name[NAME_SIZE] = "\n";
+    char surname[SURNAME_SIZE] = "\n";
+    char role[ROLE_SIZE] = "\n";
     ASSERT_EQ(parse_command(command_line,name, surname, role), WRONG_COMMAND_ERR);
 }
 
 TEST(Check_person, no_parameters) {
     Person person;
-    person.name = (char*)malloc(20 * sizeof(char));
-    person.surname = (char*)malloc(30 * sizeof(char));
-    person.role = (char*)malloc(15 * sizeof(char));
+    person.name = (char*)malloc(NAME_SIZE * sizeof(char));
+    person.surname = (char*)malloc(SURNAME_SIZE * sizeof(char));
+    person.role = (char*)malloc(ROLE_SIZE * sizeof(char));
     strcpy(person.name, "Ilya");
     strcpy(person.surname, "Nyrkov");
     strcpy(person.role, "Developer");
     person.importance = 100;
-    char empty_name[20] = "\n";
-    char empty_surname[30] = "\n";
-    char empty_role[15] = "\n";
+    char empty_name[NAME_SIZE] = "\n";
+    char empty_surname[SURNAME_SIZE] = "\n";
+    char empty_role[ROLE_SIZE] = "\n";
     EXPECT_TRUE(check_person(&person, empty_name, empty_surname, empty_role) == 0);
     free(person.name);
     free(person.surname);
@@ -309,21 +325,21 @@ TEST(Check_person, no_parameters) {
 
 TEST(Check_person, not_all_parameters) {
     Person person;
-    person.name = (char*)malloc(20 * sizeof(char));
-    person.surname = (char*)malloc(30 * sizeof(char));
-    person.role = (char*)malloc(15 * sizeof(char));
+    person.name = (char*)malloc(NAME_SIZE * sizeof(char));
+    person.surname = (char*)malloc(SURNAME_SIZE * sizeof(char));
+    person.role = (char*)malloc(ROLE_SIZE * sizeof(char));
     strcpy(person.name, "Ilya");
     strcpy(person.surname, "Nyrkov");
     strcpy(person.role, "Developer");
     person.importance = 100;
-    char empty_name[20] = "\n";
-    char empty_surname[30] = "\n";
-    char role[15] = "Developer";
-    char role2[15] = "Manager";
-    char surname[30] = "Nyrkov";
-    char surname2[30] = "Pushkin";
-    char name[20] = "Ilya";
-    char name2[20] = "Alex";
+    char empty_name[NAME_SIZE] = "\n";
+    char empty_surname[SURNAME_SIZE] = "\n";
+    char role[ROLE_SIZE] = "Developer";
+    char role2[ROLE_SIZE] = "Manager";
+    char surname[SURNAME_SIZE] = "Nyrkov";
+    char surname2[SURNAME_SIZE] = "Pushkin";
+    char name[NAME_SIZE] = "Ilya";
+    char name2[NAME_SIZE] = "Alex";
     EXPECT_TRUE(check_person(&person, empty_name, empty_surname, role) == 0);
     EXPECT_TRUE(check_person(&person, name, empty_surname, role) == 0);
     EXPECT_TRUE(check_person(&person, empty_name, surname, role) == 0);
@@ -337,26 +353,25 @@ TEST(Check_person, not_all_parameters) {
 
 TEST(Check_person, all_parameters) {
     Person person;
-    person.name = (char*)malloc(20 * sizeof(char));
-    person.surname = (char*)malloc(30 * sizeof(char));
-    person.role = (char*)malloc(15 * sizeof(char));
+    person.name = (char*)malloc(NAME_SIZE * sizeof(char));
+    person.surname = (char*)malloc(SURNAME_SIZE * sizeof(char));
+    person.role = (char*)malloc(ROLE_SIZE * sizeof(char));
     strcpy(person.name, "Ilya");
     strcpy(person.surname, "Nyrkov");
     strcpy(person.role, "Developer");
     person.importance = 100;
-    char role[15] = "Developer";
-    char role2[15] = "Manager";
-    char surname[30] = "Nyrkov";
-    char surname2[30] = "Pushkin";
-    char name[20] = "Ilya";
-    char name2[20] = "Alex";
+    char role[ROLE_SIZE] = "Developer";
+    char role2[ROLE_SIZE] = "Manager";
+    char surname[SURNAME_SIZE] = "Nyrkov";
+    char surname2[SURNAME_SIZE] = "Pushkin";
+    char name[NAME_SIZE] = "Ilya";
+    char name2[NAME_SIZE] = "Alex";
     EXPECT_TRUE(check_person(&person, name, surname, role) == 0);
     EXPECT_TRUE(check_person(&person, name2, surname2, role2) == NO_PERSON_FOUND);
     free(person.name);
     free(person.surname);
     free(person.role);
 }
-
 
 int main(int argc, char* argv[]) {
     ::testing::InitGoogleTest(&argc, argv);

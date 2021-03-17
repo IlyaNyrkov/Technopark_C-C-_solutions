@@ -10,10 +10,13 @@
 #define WRONG_PERSON_DATA_ERR 204
 #define WRONG_COMMAND_ERR 205
 
+#define CMD_LINE_SIZE 80
+#define DEF_NUM_SIZE 5
+
 int check_number(char* number);
 
-int parse_command(char cmd_line[60], char* name, char* surname, char* role);
+int parse_command(char cmd_line[CMD_LINE_SIZE], char* name, char* surname, char* role);
 
-int parse_person_data(char buffer[60], char* name, char* surname, char* role, int* importance);
+int parse_person_data(char buffer[CMD_LINE_SIZE], char* name, char* surname, char* role, int* importance);
 
 #endif  // PROJECT_INCLUDE_CHECKINPUT_H_
