@@ -78,4 +78,4 @@ venv
 *.log
 
 # Cmakedir
-cmake-build/
+cmake-build
