@@ -1,4 +1,4 @@
-#include "../include/Person.h"
+#include "Person.h"
 
 int show_person_info(Person* person) {
     if (person == NULL) {

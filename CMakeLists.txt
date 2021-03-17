@@ -1,4 +1,3 @@
-
 cmake_minimum_required(VERSION 3.8)
 project(People)
 
@@ -8,7 +7,11 @@ set(CMAKE_CXX_STANDARD 17)
 SET(MYCOMPILE_FLAGS "-std=c11")
 set(LIB_SOURCE_FILES project/src/Person.c project/src/CheckInput.c)
 add_library(study_std_lib STATIC ${LIB_SOURCE_FILES})
-add_executable(prog project/src/main.c)
+include_directories(project/include)
+add_executable(prog
+    project/include/CheckInput.h
+    project/include/Person.h 
+    project/src/main.c)
 target_link_libraries(prog study_std_lib)
 
 
@@ -21,4 +24,3 @@ add_executable(tests project/tests/test.cpp)
 
 target_link_libraries(tests ${GTEST_LIBRARIES} -lpthread)
 target_link_libraries(tests study_std_lib)
-

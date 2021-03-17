@@ -1,5 +1,5 @@
 
-#include "../include/Person.h"
+#include "Person.h"
 
 int mem_alloc_person(Person* person) {
     person->name = malloc(NAME_SIZE * sizeof(char));

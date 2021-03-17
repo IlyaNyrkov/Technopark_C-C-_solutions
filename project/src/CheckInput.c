@@ -1,4 +1,4 @@
-#include "../include/CheckInput.h"
+#include "CheckInput.h"
 
 
 int check_number(char* number) {

@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 extern "C" {
-    #include "../include/Person.h"
-    #include "../include/CheckInput.h"
+    #include "Person.h"
+    #include "CheckInput.h"
 }
 TEST(person_memory_allocation, malloc_test) {
     Person* person = (Person*)malloc(sizeof(Person));
