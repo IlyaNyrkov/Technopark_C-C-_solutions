@@ -1,10 +1,7 @@
 dist: trusty 
 sudo: required
 
-languages:
-  -c
-  -python
-
+languages: c
 os:
   - linux
 compiler: 
@@ -15,6 +12,7 @@ addons:
       - cmake
       - valgrind
       - cppcheck
+      - Python 2.7
 before_script:
   - sudo apt-get install -y libgtest-dev
   - cd /usr/src/gtest
