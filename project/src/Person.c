@@ -55,16 +55,15 @@ int add_person_info(Person* person, char name[20], char role[15], char surname[3
     person->importance = importance;
     return 0;
 }
-// принцип работы проверки: так как имеется три поля и возможность ввода не всех полей для поиска
-// нужно проверять является ли элемент поиска пустым (проверка b: справа), если он пустой,
-// то значение проверки поля структуры равенства элемента поиска (проверка a: слева) не должно
-// влиять на результат, если значение проверки b = 1, то значение a не важно
+// how this works: there are free checks and ability to not enter all fields for check
+// we need to check that given parameter (number, surname, role) is empty (check b: on the right)
+// тif it's empty, then structure check field equal to given parameter (check a: on the left) doesn't
+// change anything, logic table for one 3's subexpressions, the logic expression: (+) or mod 2
 // |a|b|res|
-// |0|0| 0 | поле структуры и поле элемента различны - человека нет
-// |0|1| 1 | чтобы произошли проверки других элементов при пустом парамтре выражение должно быть правдивым
-// |1|0| 1 | поле струпкутры и поле элемента одинаковы - всё нормально
-// |1|1| 0 | написано для полноты таблицы, так как пустоста поля структуры невозможна в этой программе, таких
-// значений a b не будет и такой таблице подходит операция (+) или mod 2
+// |0|0| 0 |
+// |0|1| 1 |
+// |1|0| 1 |
+// |1|1| 0 |
 int check_person(Person* people, char name[20], char surname[30], char role[15]) {
     if ( ( (strcmp(people->role, role) == 0) + (strcmp(role, "\n") == 0) ) % 2 &&
             ( (strcmp(people->name, name) == 0) + (strcmp(name, "\n") == 0) ) % 2 &&

@@ -29,7 +29,7 @@ int show_info_depending(Person* people, size_t n, char name[20], char surname[30
 }
 
 int main(int argc, char* argv[]) {
-    char people_count[5];  // ол-во участников  и уровень важности лежат в [0; 10000)
+    char people_count[5];  // participants count and level of importance is in [0; 10000)
     do {
         printf("Enter count of project participants: ");
         scanf("%4s", people_count);
