@@ -4,6 +4,8 @@ project(People)
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_C_FLAGS "-pedantic -fprofile-arcs -ftest-coverage")
+set(CMAKE_CXX_FLAGS "-pedantic -fprofile-arcs -ftest-coverage")
 SET(MYCOMPILE_FLAGS "-std=c11")
 set(LIB_SOURCE_FILES project/src/Person.c project/src/CheckInput.c)
 add_library(study_std_lib STATIC ${LIB_SOURCE_FILES})

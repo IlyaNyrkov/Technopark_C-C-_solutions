@@ -1,4 +1,3 @@
 /cmake-build
-.*
-!.gitignore
-!.travis.yml
+.gitignore
+.travis.yml

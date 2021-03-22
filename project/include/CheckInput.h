@@ -15,7 +15,7 @@
 
 int check_number(char* number);
 
-int parse_command(char cmd_line[CMD_LINE_SIZE], char* name, char* surname, char* role);
+int parse_command(char cmd_line[], char* name, char* surname, char* role);
 
 int parse_person_data(char buffer[CMD_LINE_SIZE], char* name, char* surname, char* role, int* importance);
 

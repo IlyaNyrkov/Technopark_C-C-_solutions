@@ -19,7 +19,7 @@ int check_number(char* number) {
     return 0;
 }
 
-int parse_command(char cmd_line[CMD_LINE_SIZE], char* name, char* surname, char* role) {
+int parse_command(char cmd_line[], char* name, char* surname, char* role) {
     if (cmd_line == NULL || name == NULL || surname == NULL || role == NULL) {
         return WRONG_COMMAND_ERR;
     }

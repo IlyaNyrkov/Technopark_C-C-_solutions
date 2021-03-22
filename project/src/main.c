@@ -1,36 +1,12 @@
 #include "Person.h"
 
-int show_person_info(Person* person) {
-    if (person == NULL) {
-        return MEM_ALLOC_ERR;
-    }
-    printf("name: %s\nsurname: %s\nrole: %s\nimportance: %d\n",
-        person->name, person->surname, person->role, person->importance);
-}
+int show_person_info(Person* person) ;
 
 int show_info_depending(Person* people, size_t n, char name[NAME_SIZE],
-    char surname[SURNAME_SIZE], char role[ROLE_SIZE]) {
-    if (people == NULL) {
-        return MEM_ALLOC_ERR;
-    }
-    int elem_cnt = 0;
-    for (size_t i = 0; i < n; i++) {
-        if (check_person(&people[i], name, surname, role) != NO_PERSON_FOUND) {
-                printf("person's info:\n");
-                if (show_person_info(&people[i]) == MEM_ALLOC_ERR) {
-                    return MEM_ALLOC_ERR;
-                }
-                elem_cnt++;
-            }
-    }
-    if (elem_cnt == 0) {
-        printf("No people found with name: %s surname: %s, role: %s\n", name, surname, role);
-    }
-    return 0;
-}
+    char surname[SURNAME_SIZE], char role[ROLE_SIZE]);
 
 int main(int argc, char* argv[]) {
-    char people_count[DEF_NUM_SIZE];  // participants count and level of importance is in [0; 10000)
+    char people_count[DEF_NUM_SIZE] = {""};  // participants count and level of importance is in [0; 10000)
     do {
         printf("Enter count of project participants: ");
         scanf("%4s", people_count);
@@ -39,19 +15,19 @@ int main(int argc, char* argv[]) {
     int n = atoi(people_count);
     Person* people = malloc(n * sizeof(Person));
     if (people == NULL) {
-        printf("Error: cannot alloc memory for participants\n");
+        fprintf(stderr, "Cannot alloc memory for participants\n");
         return MEM_ALLOC_ERR;
     }
     char* person_buffer = malloc(CMD_LINE_SIZE * sizeof(char));
     if (person_buffer == NULL) {
-        printf("Can't alloc memory for person info buffer\n");
+        fprintf(stderr, "Cannot alloc memory for person info buffer\n");
         free(people);
         return MEM_ALLOC_ERR;
         }
 
     for (int i = 0; i < n; i++) {
         if (mem_alloc_person(&people[i])) {
-            printf("Cannot allocate memory for person's data\n");
+            fprintf(stderr, "Cannot allocate memory for person's data\n");
             free(people);
             free(person_buffer);
             return MEM_ALLOC_ERR;
@@ -71,7 +47,7 @@ int main(int argc, char* argv[]) {
     person_buffer = NULL;
     char* command_buffer = malloc(CMD_LINE_SIZE * sizeof(char));
     if (command_buffer == NULL) {
-        printf("Can't alloc memory for command buffer\n");
+        fprintf(stderr, "Cannot alloc memory for command buffer\n");
         return MEM_ALLOC_ERR;
     }
     char name[NAME_SIZE] = "\n";
@@ -86,5 +62,34 @@ int main(int argc, char* argv[]) {
     people = NULL;
     free(command_buffer);
     command_buffer = NULL;
+    return 0;
+}
+
+int show_person_info(Person* person) {
+    if (person == NULL) {
+        return MEM_ALLOC_ERR;
+    }
+    printf("name: %s\nsurname: %s\nrole: %s\nimportance: %d\n",
+        person->name, person->surname, person->role, person->importance);
+}
+
+int show_info_depending(Person* people, size_t n, char name[NAME_SIZE],
+    char surname[SURNAME_SIZE], char role[ROLE_SIZE]) {
+    if (people == NULL || name == NULL || surname == NULL || role == NULL) {
+        return MEM_ALLOC_ERR;
+    }
+    int elem_cnt = 0;
+    for (size_t i = 0; i < n; i++) {
+        if (check_person(&people[i], name, surname, role) != NO_PERSON_FOUND) {
+                printf("person's info:\n");
+                if (show_person_info(&people[i]) == MEM_ALLOC_ERR) {
+                    return MEM_ALLOC_ERR;
+                }
+                elem_cnt++;
+            }
+    }
+    if (elem_cnt == 0) {
+        printf("No people found with name: %s surname: %s, role: %s\n", name, surname, role);
+    }
     return 0;
 }
