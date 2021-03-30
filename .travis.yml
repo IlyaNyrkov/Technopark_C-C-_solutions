@@ -13,10 +13,10 @@ addons:
 install:
   - echo INSTALLING DEPENDENCES
   # скрипт настройки среды
-  - source linux_options_for_travis.sh
+  - source hw_2/linux_options_for_travis.sh
 
 script:
-  - cd hw_1
+  - cd hw_2
   - cmake -DCMAKE_BUILD_TYPE=Test ./
   - make
   - valgrind --leak-check=full --leak-resolution=med --track-origins=yes --vgdb=no ./untitled
