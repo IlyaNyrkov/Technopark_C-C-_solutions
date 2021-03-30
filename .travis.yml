@@ -1,31 +1,28 @@
-dist: trusty 
-sudo: required
+arch: amd64
+os: linux    
+dist: focal 
 
-languages: c
-os:
-  - linux
-compiler: 
-  - gcc
+language: cpp
+compiler: gcc
+
 addons:
   apt:
-    packages:
-      - cppcheck
+    packages: lcov
+
+
 install:
-  - echo INSTALLING DEPENDENCIES
+  - echo INSTALLING DEPENDENCES
+  # скрипт настройки среды
   - source linux_options_for_travis.sh
-before_script:
-  - sudo apt-get install -y libgtest-dev
-  - cd /usr/src/gtest
-  - sudo cmake CMakeLists.txt
-  - sudo make
-  - sudo cp *.a /usr/lib
-  - cd "${TRAVIS_BUILD_DIR}"
-  - cmake .
-  - make
 
 script:
-  - valgrind --track-origins=yes --leak-check=full ./tests
-  - cppcheck --enable=warning,performance,portability,style --language=c++ ./prog
-  - cd "${TRAVIS_BUILD_DIR}"
+  - cmake -DCMAKE_BUILD_TYPE=Test ./
+  - make
+  - valgrind --leak-check=full --leak-resolution=med --track-origins=yes --vgdb=no ./untitled
+
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - cd CMakeFiles/untitled.dir
+  - lcov --directory . --capture --output-file coverage.info
+  - lcov --remove coverage.info '/usr/*' "${HOME}"'/.cache/*' --output-file coverage.info
+  - lcov --list coverage.info
+  - bash <(curl -s https://codecov.io/bash) -f coverage.info
