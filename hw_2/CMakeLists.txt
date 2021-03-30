@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.16)
-set(PROJECT count_predicates)
+cmake_minimum_required(VERSION 3.17)
+set(PROJECT untitled)
 project(${PROJECT})
 
 set(CMAKE_CXX_STANDARD 14)
