@@ -8,7 +8,7 @@ set (HEADERS
 	ERRORS/error_msg.h
 	File_Work/work_with_bin.h
 	interface/interface.h
-	configuration/config.h
+	configuration
 	)
 	
 set (SOURCES

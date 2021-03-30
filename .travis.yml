@@ -9,9 +9,10 @@ compiler:
 addons:
   apt:
     packages:
-      - cmake
-      - valgrind
       - cppcheck
+install:
+  - echo INSTALLING DEPENDENCIES
+  - source linux_options_for_travis.sh
 before_script:
   - sudo apt-get install -y libgtest-dev
   - cd /usr/src/gtest
