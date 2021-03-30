@@ -13,7 +13,7 @@ addons:
 install:
   - echo INSTALLING DEPENDENCES
   # скрипт настройки среды
-  - source hw_2/linux_options_for_travis.sh
+  - source hw_2/ci/travis/install-linux.sh
 
 script:
   - cd hw_2
