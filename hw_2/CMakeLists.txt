@@ -6,18 +6,15 @@ set(CMAKE_CXX_STANDARD 14)
 
 # ---------- Using files -----------
 set (HEADERS
-        Errors/error_message.h
-        Errors/error_code.h
-        File/bin_file_routines.h
-        Algorithm_calculate_sum/my_math.h
-        Task_manager/task_manager.h
+        File_Work/work_with_bin.h
+        ERRORS/error_msg.h
+        interface/interface.h
         )
 
 set (SOURCES
-        Errors/error_message.c
-        File/bin_file_routines.c
-        Algorithm_calculate_sum/my_math.c
-        Task_manager/task_manager.c
+        File_Work/work_with_bin.c
+        ERRORS/error_msg.c
+        interface/interface.c
         )
 
 
@@ -44,8 +41,8 @@ option(BUILD_SHARED_LIBS "Build the shared library" ON)
 if (BUILD_STATIC_LIBS MATCHES ON)
     message(STATUS "Type lib : STATIC LIB")
     add_library(sum_array_sequential STATIC
-            Algorithm_calculate_sum/sequential_sum.h
-            Algorithm_calculate_sum/sequential_sum.c
+            CalculatePredicate/sequential_predicate.h
+            CalculatePredicate/sequential_predicate.c
             )
     target_include_directories(sum_array_sequential PRIVATE "${PROJECT_SOURCE_DIR}")
 endif()
@@ -54,8 +51,8 @@ if (BUILD_SHARED_LIBS MATCHES ON)
     message(STATUS "Type lib : SHARED LIB")
     include(GenerateExportHeader)
     add_library(sum_array_parallel SHARED
-            Algorithm_calculate_sum/parallel_sum.h
-            Algorithm_calculate_sum/parallel_sum.c
+            CalculatePredicate/parallel_predicate.h
+            CalculatePredicate/parallel_predicate.c
             )
     target_include_directories(sum_array_parallel PRIVATE "${PROJECT_SOURCE_DIR}")
 endif()
@@ -115,9 +112,9 @@ elseif (CMAKE_BUILD_TYPE MATCHES Test)
 
 
     add_executable(${PROJECT}
-            Tests/test.cpp
-            Tests/unit_test.cpp
-            Tests/stress_test.cpp
+            test/launch_tests_main.cpp
+            tests/stresstesting.cpp
+            tests/unit_testing.cpp
             ${SOURCES}
             )
 
