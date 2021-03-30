@@ -16,6 +16,7 @@ install:
   - source linux_options_for_travis.sh
 
 script:
+  - cd hw_1
   - cmake -DCMAKE_BUILD_TYPE=Test ./
   - make
   - valgrind --leak-check=full --leak-resolution=med --track-origins=yes --vgdb=no ./untitled
