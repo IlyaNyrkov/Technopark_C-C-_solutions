@@ -45,7 +45,7 @@ int count_predicate_occurance_parallel(unsigned long *res_sum, size_t size, char
 
 int initiate_threads(thread_arguments *args, size_t thread_count,
         size_t size, char stream_name[FILE_NAME_LENGTH]) {
-    if (!args || !stream_name || thread_count < 1 || size < 1) {
+    if (args == NULL || stream_name == NULL || thread_count < 1 || size < 1) {
         return WRONG_DATA_ERR;
     }
 
@@ -83,7 +83,7 @@ int run_threads(pthread_t *threads, thread_arguments *args, size_t thread_count)
 }
 
 int get_result_predicate_occurance_threads(unsigned long *res_count, thread_arguments *args, size_t thread_count) {
-    if (!res_count || !args || thread_count < 1) {
+    if (res_count == NULL || args == NULL|| thread_count < 1) {
         return WRONG_DATA_ERR;
     }
     // add predicate
@@ -97,7 +97,7 @@ int get_result_predicate_occurance_threads(unsigned long *res_count, thread_argu
 
 void count_partial_predicate_occurance(void *void_args) {
     int error = EVERYTHING_IS_OK;
-    if (!void_args) {
+    if (void_args == NULL) {
         error = WRONG_DATA_ERR;
         pthread_exit(&error);
     }
@@ -118,7 +118,7 @@ void count_partial_predicate_occurance(void *void_args) {
 }
 
 int wait_threads(const pthread_t *threads, size_t thread_count) {
-    if (!threads || thread_count < 1) {
+    if (threads == NULL || thread_count < 1) {
         return WRONG_DATA_ERR;
     }
     int error_flag = EVERYTHING_IS_OK;
@@ -133,6 +133,9 @@ int wait_threads(const pthread_t *threads, size_t thread_count) {
 }
 
 int predicate(const int* elem) {
+    if (elem == NULL) {
+        return WRONG_DATA_ERR;
+    }
     if (*elem < 157) {
         return 1;
     }

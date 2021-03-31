@@ -70,3 +70,23 @@ TEST(dynamic_library_parallel_algorithm, test_1million_nums) {
     ASSERT_EQ(count_predicate_occurance_parallel(&count, 1000000, filename), EVERYTHING_IS_OK);
     ASSERT_EQ(count, result);
 }
+
+TEST(dynamic_library, GetNumberOfCPUcores) {
+    int corecount = get_number_of_CPU_cores();
+    ASSERT_EQ(corecount, 8);
+}
+
+TEST(dynmaic_libray, predicate) {
+    int result = 0;
+    int digit = 100;
+    result = predicate(digit);
+    ASSERTEQ(result, 1);
+    digit = 157;
+    result = predicate(digit);
+    ASSERT_EQ(result, 0);
+    digit = 1000;
+    result = predicate(digit);
+    ASSERT_EQ(result, 0);
+    result = predicate(100);
+    ASSERT_EQ(result, WRONG_DATA_ERR)
+}
