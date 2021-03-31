@@ -73,21 +73,5 @@ TEST(dynamic_library_parallel_algorithm, test_1million_nums) {
 
 TEST(dynamic_library, GetNumberOfCPUcores) {
     int corecount = get_number_of_CPU_cores();
-    ASSERT_EQ(corecount, 8);
-}
-
-TEST(dynmaic_libray, predicate) {
-    int result = 0;
-    const int digit1 = 100;
-    result = predicate(&digit1);
-    ASSERT_EQ(result, 1);
-    const int digit2 = 157;
-    result = predicate(&digit2);
-    ASSERT_EQ(result, 0);
-    const int digit3 = 1000;
-    result = predicate(&digit3);
-    ASSERT_EQ(result, 0);
-    const int* digit4 = NULL;
-    result = predicate(digit4);
-    ASSERT_EQ(result, WRONG_DATA_ERR);
+    ASSERT_EQ(corecount, 2);
 }
