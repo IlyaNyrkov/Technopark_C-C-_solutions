@@ -7,7 +7,7 @@ int interface(const request* new_request) {
 
     int error = EVERYTHING_IS_OK;
 
-    unsigned int count = 0;
+    unsigned long count = 0;
 
     struct timeb start, end;
     int64_t time = 0;
@@ -24,5 +24,5 @@ int interface(const request* new_request) {
     printf("predicate occurance = %u\n", count);
     printf("time = %" PRIu64 "\n", time);
 
-    return err;
+    return error;
 }

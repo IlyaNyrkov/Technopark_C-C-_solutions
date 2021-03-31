@@ -10,7 +10,7 @@ int get_number_from_pos(int* number, size_t id, FILE* stream) {
         return FUNC_ERR;
     }
 
-    if (fread(num, sizeof(int), 1, stream) != 1) {
+    if (fread(number, sizeof(int), 1, stream) != 1) {
         return INPUT_ERR;
     }
 

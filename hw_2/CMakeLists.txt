@@ -1,19 +1,19 @@
 cmake_minimum_required(VERSION 3.17)
-project(untitled)
-
+set(PROJECT untitled)
+project(${PROJECT})
 
 set(CMAKE_CXX_STANDARD 14)
 
 # ---------- Using files -----------
 set (HEADERS
-        File_Work/work_with_bin.h
         ERRORS/error_msg.h
+        File_Work/work_with_bin.h
         interface/interface.h
         )
 
 set (SOURCES
-        File_Work/work_with_bin.c
         ERRORS/error_msg.c
+        File_Work/work_with_bin.c
         interface/interface.c
         )
 
@@ -40,21 +40,21 @@ option(BUILD_SHARED_LIBS "Build the shared library" ON)
 # Static lib
 if (BUILD_STATIC_LIBS MATCHES ON)
     message(STATUS "Type lib : STATIC LIB")
-    add_library(sum_array_sequential STATIC
+    add_library(count_predicate_sequential STATIC
             CalculatePredicate/sequential_predicate.h
             CalculatePredicate/sequential_predicate.c
             )
-    target_include_directories(sum_array_sequential PRIVATE "${PROJECT_SOURCE_DIR}")
+    target_include_directories(count_predicate_sequential PRIVATE "${PROJECT_SOURCE_DIR}")
 endif()
 
 if (BUILD_SHARED_LIBS MATCHES ON)
     message(STATUS "Type lib : SHARED LIB")
     include(GenerateExportHeader)
-    add_library(sum_array_parallel SHARED
+    add_library(count_predicate_parallel SHARED
             CalculatePredicate/parallel_predicate.h
             CalculatePredicate/parallel_predicate.c
             )
-    target_include_directories(sum_array_parallel PRIVATE "${PROJECT_SOURCE_DIR}")
+    target_include_directories(count_predicate_parallel PRIVATE "${PROJECT_SOURCE_DIR}")
 endif()
 
 
@@ -113,8 +113,8 @@ elseif (CMAKE_BUILD_TYPE MATCHES Test)
 
     add_executable(${PROJECT}
             test/launch_tests_main.cpp
-            tests/stresstesting.cpp
-            tests/unit_testing.cpp
+            test/unit_testing.cpp
+            test/stresstesting.cpp
             ${SOURCES}
             )
 
@@ -122,8 +122,8 @@ elseif (CMAKE_BUILD_TYPE MATCHES Test)
             gtest
             gmock_main
             gcov
-            sum_array_parallel
-            sum_array_sequential
+            count_predicate_sequential
+            count_predicate_parallel
             )
 
     add_test(run_tests run_tests)

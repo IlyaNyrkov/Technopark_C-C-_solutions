@@ -4,7 +4,7 @@ int get_number_of_CPU_cores() {
     return sysconf(_SC_NPROCESSORS_ONLN);
 }
 
-int count_predicate_occurance_parallel(uint *res_sum, size_t size, char stream_name[FILE_NAME_LENGTH]) {
+int count_predicate_occurance_parallel(unsigned long *res_sum, size_t size, char stream_name[FILE_NAME_LENGTH]) {
     if (!res_sum || !stream_name) {
         return WRONG_DATA_ERR;
     }
@@ -18,7 +18,7 @@ int count_predicate_occurance_parallel(uint *res_sum, size_t size, char stream_n
     size_t thread_count = BASE_THREAD_CNT;
 
     thread_arguments args[thread_count];
-    int = initiate_threads(args, thread_count, size, stream_name);
+    error = initiate_threads(args, thread_count, size, stream_name);
     if (error) {
         return error;
     }
@@ -27,11 +27,11 @@ int count_predicate_occurance_parallel(uint *res_sum, size_t size, char stream_n
     int CPU_cores_count = get_number_of_CPU_cores();
     size_t active_threads;
     size_t i = 0;
-    while ((i < thread_count) && (!err)) {
+    while ((i < thread_count) && (!error)) {
         active_threads = (thread_count - i >= CPU_cores_count) ? CPU_cores_count : thread_count - i;
-        error = run_threads(threads[i], args[i], active_threads);
+        error = run_threads(&threads[i], &args[i], active_threads);
         if (!error) {
-            error = wait_threads(threads[i], active_threads);
+            error = wait_threads(&threads[i], active_threads);
             i += active_threads;
         }
     }
@@ -82,8 +82,8 @@ int run_threads(pthread_t *threads, thread_arguments *args, size_t thread_count)
     return EVERYTHING_IS_OK;
 }
 
-int get_result_predicate_occurance_threads(uint *res_count, thread_arguments *args, size_t thread_count) {
-    if (!count || !args || thread_count < 1) {
+int get_result_predicate_occurance_threads(unsigned long *res_count, thread_arguments *args, size_t thread_count) {
+    if (!res_count || !args || thread_count < 1) {
         return WRONG_DATA_ERR;
     }
     // add predicate
@@ -108,11 +108,33 @@ void count_partial_predicate_occurance(void *void_args) {
     while (args->id < ARRAY_SIZE && args->id < args->size && !error) {
         error = get_number_from_pos(&(args->buffer_tmp), args->id, args->stream);
         if (!error) {
-            if (predicate(args->buffer_tmp)) {
+            if (predicate(&args->buffer_tmp)) {
                 args->count++;
             }
         }
         args->id += args->step;
     }
     pthread_exit(&error);
+}
+
+int wait_threads(const pthread_t *threads, size_t thread_count) {
+    if (!threads || thread_count < 1) {
+        return WRONG_DATA_ERR;
+    }
+    int error_flag = EVERYTHING_IS_OK;
+    for (size_t i = 0; (i < thread_count) && (!error_flag); ++i) {
+        error_flag = pthread_join(threads[i], NULL);
+    }
+
+    if (error_flag) {
+        return JOIN_THREADS_ERR;
+    }
+    return EVERYTHING_IS_OK;
+}
+
+int predicate(const int* elem) {
+    if (*elem < 157) {
+        return 1;
+    }
+    return 0;
 }

@@ -1,6 +1,9 @@
 #ifndef ERRORS_ERROR_MSG_H
 #define ERRORS_ERROR_MSH_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 #include <stdio.h>
 
 #define EVERYTHING_IS_OK 0
@@ -11,5 +14,9 @@
 #define FUNC_ERR 301
 
 void print_error_msg(int error_code);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
