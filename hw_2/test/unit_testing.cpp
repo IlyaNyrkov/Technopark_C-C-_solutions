@@ -78,7 +78,7 @@ TEST(dynamic_library, GetNumberOfCPUcores) {
 
 TEST(dynmaic_libray, predicate) {
     int result = 0;
-    const int digit = 100;
+    const int digit1 = 100;
     result = predicate(digit1);
     ASSERT_EQ(result, 1);
     const int digit2 = 157;
