@@ -78,15 +78,16 @@ TEST(dynamic_library, GetNumberOfCPUcores) {
 
 TEST(dynmaic_libray, predicate) {
     int result = 0;
-    int digit = 100;
-    result = predicate(&(const int)digit);
+    const int digit1 = 100;
+    result = predicate(&digit1);
     ASSERT_EQ(result, 1);
-    digit = 157;
-    result = predicate(&(const int)digit);
+    const int digit2 = 157;
+    result = predicate(&digit2);
     ASSERT_EQ(result, 0);
-    digit = 1000;
-    result = predicate(&(const int)digit);
+    const int digit3 = 1000;
+    result = predicate(&digit3);
     ASSERT_EQ(result, 0);
-    result = predicate(100);
+    const int* digit4 = NULL;
+    result = predicate(digit4);
     ASSERT_EQ(result, WRONG_DATA_ERR);
 }
