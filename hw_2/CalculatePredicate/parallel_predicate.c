@@ -5,11 +5,11 @@ int get_number_of_CPU_cores() {
 }
 
 int count_predicate_occurance_parallel(unsigned long *res_sum, size_t size, char stream_name[FILE_NAME_LENGTH]) {
-    if (!res_sum || !stream_name) {
+    if (res_sum == NULL || stream_name == NULL) {
         return WRONG_DATA_ERR;
     }
 
-    if (!size) {
+    if (size == 0) {
         *res_sum = 0;
         return EVERYTHING_IS_OK;
     }
@@ -66,13 +66,13 @@ int initiate_threads(thread_arguments *args, size_t thread_count,
 }
 
 int run_threads(pthread_t *threads, thread_arguments *args, size_t thread_count) {
-    if (!threads || thread_count < 1) {
+    if (threads == NULL || args == NULL || thread_count < 1) {
         return WRONG_DATA_ERR;
     }
 
     int error_flag = 0;
     for (size_t i = 0; (i < thread_count) && (!error_flag); ++i) {
-        error_flag = pthread_join(threads[i], NULL);
+        error_flag = pthread_create(&threads[i], NULL, count_partial_predicate_occurance, &args[i]);
     }
 
     if (error_flag) {
@@ -105,7 +105,7 @@ void count_partial_predicate_occurance(void *void_args) {
     thread_arguments *args = (thread_arguments*)void_args;
 
     args->count = 0;
-    while (args->id < ARRAY_SIZE && args->id < args->size && !error) {
+    while ((args->id < ARRAY_SIZE) && (args->id < args->size) && !error) {
         error = get_number_from_pos(&(args->buffer_tmp), args->id, args->stream);
         if (!error) {
             if (predicate(&args->buffer_tmp)) {
