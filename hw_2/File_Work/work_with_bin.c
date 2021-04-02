@@ -2,7 +2,7 @@
 #include "work_with_bin.h"
 
 int get_number_from_pos(int* number, size_t id, FILE* stream) {
-    if (number == NULL || stream = NULL) {
+    if (number == NULL || stream == NULL) {
         return WRONG_DATA_ERR;
     }
 
