@@ -10,10 +10,10 @@ extern "C" {
 #include <unistd.h>
 #include <stdio.h>
 
-#include "ERRORS/error_msg.h"
-#include "File_Work/work_with_bin.h"
+
 #include "configuration/config.h"
 #include "File_Work/work_with_bin.h"
+#include "ERRORS/error_msg.h"
 struct thread_arguments {
     FILE* stream;
     unsigned long count;

@@ -1,5 +1,8 @@
 #include "sequential_predicate.h"
 int predicate(const int* elem) {
+    if (elem == NULL) {
+        return WRONG_DATA_ERR;
+    }
     if (*elem < 157) {
         return 1;
     }
