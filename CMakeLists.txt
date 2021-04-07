@@ -44,9 +44,7 @@ find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIR})
 message(${GTEST_LIBRARIES})
 
-add_executable(stress_test
-	project/test/stresstesting.cpp
-	)
+
 
 add_executable(test_sequential
 	project/test/unit_testing.cpp
@@ -58,6 +56,6 @@ add_executable(test_parallel
 	project/source/parallel_predicate.c
 	)
 
-target_link_libraries(stress_test ${GTEST_LIBRARIES} dl count_predicate_occur_sequential count_predicate_occur_parallel)
+
 target_link_libraries(test_sequential ${GTEST_LIBRARIES} count_predicate_occur_sequential)
 target_link_libraries(test_parallel ${GTEST_LIBRARIES} count_predicate_occur_parallel)
