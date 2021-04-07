@@ -27,7 +27,7 @@ script:
   - valgrind --track-origins=yes --leak-check=full ./test_sequential
   - valgrind --track-origins=yes --leak-check=full ./test_parallel
   - cppcheck --enable=warning,performance,portability,style --language=c++ ./parallel 
-  - cppcheck --enable=warning,performance,portability,style --language=c++ ./naive 
+  - cppcheck --enable=warning,performance,portability,style --language=c++ ./sequential
 
   - cd "${TRAVIS_BUILD_DIR}"
 after_success:
