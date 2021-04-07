@@ -34,11 +34,11 @@ stdio.h
 error_msg.h
 ../project/include/error_msg.h
 
-/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/test/unit_testing.cpp
+/home/ilyanyrkov/Technopark_C-C-_solutions/project/test/unit_testing.cpp
 gtest/gtest.h
-/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/test/gtest/gtest.h
+/home/ilyanyrkov/Technopark_C-C-_solutions/project/test/gtest/gtest.h
 stdio.h
 -
 count_predicate.h
-/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/test/count_predicate.h
+/home/ilyanyrkov/Technopark_C-C-_solutions/project/test/count_predicate.h
 

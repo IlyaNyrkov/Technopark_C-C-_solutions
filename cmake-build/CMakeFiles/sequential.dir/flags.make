@@ -6,5 +6,5 @@ C_FLAGS = -pthread  -Wall -Werror -Wpedantic -fprofile-arcs -ftest-coverage   -s
 
 C_DEFINES = 
 
-C_INCLUDES = -I/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/include 
+C_INCLUDES = -I/home/ilyanyrkov/Technopark_C-C-_solutions/project/include 
 

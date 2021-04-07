@@ -6,5 +6,5 @@ C_FLAGS = -pthread  -Wall -Werror -Wpedantic -fprofile-arcs -ftest-coverage -fPI
 
 C_DEFINES = -Dcount_predicate_occur_parallel_EXPORTS
 
-C_INCLUDES = -I/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/include 
+C_INCLUDES = -I/home/ilyanyrkov/Technopark_C-C-_solutions/project/include 
 

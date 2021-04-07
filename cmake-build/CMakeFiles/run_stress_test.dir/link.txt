@@ -1,1 +1,0 @@
-/usr/bin/c++  -pthread -Wall -Werror -Wpedantic -fprofile-arcs -ftest-coverage   CMakeFiles/run_stress_test.dir/project/test/stresstesting.cpp.o  -o run_stress_test  -Wl,-rpath,/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/cmake-build -lgtest -lgcov -ldl libcount_predicate_occur_sequential.a libcount_predicate_occur_parallel.so 

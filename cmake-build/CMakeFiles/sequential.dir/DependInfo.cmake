@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/source/main.c" "/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/cmake-build/CMakeFiles/sequential.dir/project/source/main.c.o"
+  "/home/ilyanyrkov/Technopark_C-C-_solutions/project/source/main.c" "/home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles/sequential.dir/project/source/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -15,7 +15,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/cmake-build/CMakeFiles/count_predicate_occur_sequential.dir/DependInfo.cmake"
+  "/home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles/count_predicate_occur_sequential.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

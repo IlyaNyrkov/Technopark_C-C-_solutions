@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ilyanyrkov/Technopark_C-C-_solutions/hw_2
+CMAKE_SOURCE_DIR = /home/ilyanyrkov/Technopark_C-C-_solutions
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/cmake-build
+CMAKE_BINARY_DIR = /home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/count_predicate_occur_parallel.dir/depend.make
@@ -59,42 +59,42 @@ include CMakeFiles/count_predicate_occur_parallel.dir/flags.make
 
 CMakeFiles/count_predicate_occur_parallel.dir/project/source/parallel_predicate.c.o: CMakeFiles/count_predicate_occur_parallel.dir/flags.make
 CMakeFiles/count_predicate_occur_parallel.dir/project/source/parallel_predicate.c.o: ../project/source/parallel_predicate.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/cmake-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/count_predicate_occur_parallel.dir/project/source/parallel_predicate.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/count_predicate_occur_parallel.dir/project/source/parallel_predicate.c.o   -c /home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/source/parallel_predicate.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/count_predicate_occur_parallel.dir/project/source/parallel_predicate.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/count_predicate_occur_parallel.dir/project/source/parallel_predicate.c.o   -c /home/ilyanyrkov/Technopark_C-C-_solutions/project/source/parallel_predicate.c
 
 CMakeFiles/count_predicate_occur_parallel.dir/project/source/parallel_predicate.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/count_predicate_occur_parallel.dir/project/source/parallel_predicate.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/source/parallel_predicate.c > CMakeFiles/count_predicate_occur_parallel.dir/project/source/parallel_predicate.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ilyanyrkov/Technopark_C-C-_solutions/project/source/parallel_predicate.c > CMakeFiles/count_predicate_occur_parallel.dir/project/source/parallel_predicate.c.i
 
 CMakeFiles/count_predicate_occur_parallel.dir/project/source/parallel_predicate.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/count_predicate_occur_parallel.dir/project/source/parallel_predicate.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/source/parallel_predicate.c -o CMakeFiles/count_predicate_occur_parallel.dir/project/source/parallel_predicate.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ilyanyrkov/Technopark_C-C-_solutions/project/source/parallel_predicate.c -o CMakeFiles/count_predicate_occur_parallel.dir/project/source/parallel_predicate.c.s
 
 CMakeFiles/count_predicate_occur_parallel.dir/project/source/error_msg.c.o: CMakeFiles/count_predicate_occur_parallel.dir/flags.make
 CMakeFiles/count_predicate_occur_parallel.dir/project/source/error_msg.c.o: ../project/source/error_msg.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/cmake-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/count_predicate_occur_parallel.dir/project/source/error_msg.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/count_predicate_occur_parallel.dir/project/source/error_msg.c.o   -c /home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/source/error_msg.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/count_predicate_occur_parallel.dir/project/source/error_msg.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/count_predicate_occur_parallel.dir/project/source/error_msg.c.o   -c /home/ilyanyrkov/Technopark_C-C-_solutions/project/source/error_msg.c
 
 CMakeFiles/count_predicate_occur_parallel.dir/project/source/error_msg.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/count_predicate_occur_parallel.dir/project/source/error_msg.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/source/error_msg.c > CMakeFiles/count_predicate_occur_parallel.dir/project/source/error_msg.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ilyanyrkov/Technopark_C-C-_solutions/project/source/error_msg.c > CMakeFiles/count_predicate_occur_parallel.dir/project/source/error_msg.c.i
 
 CMakeFiles/count_predicate_occur_parallel.dir/project/source/error_msg.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/count_predicate_occur_parallel.dir/project/source/error_msg.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/source/error_msg.c -o CMakeFiles/count_predicate_occur_parallel.dir/project/source/error_msg.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ilyanyrkov/Technopark_C-C-_solutions/project/source/error_msg.c -o CMakeFiles/count_predicate_occur_parallel.dir/project/source/error_msg.c.s
 
 CMakeFiles/count_predicate_occur_parallel.dir/project/source/work_with_bin.c.o: CMakeFiles/count_predicate_occur_parallel.dir/flags.make
 CMakeFiles/count_predicate_occur_parallel.dir/project/source/work_with_bin.c.o: ../project/source/work_with_bin.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/cmake-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/count_predicate_occur_parallel.dir/project/source/work_with_bin.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/count_predicate_occur_parallel.dir/project/source/work_with_bin.c.o   -c /home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/source/work_with_bin.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/count_predicate_occur_parallel.dir/project/source/work_with_bin.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/count_predicate_occur_parallel.dir/project/source/work_with_bin.c.o   -c /home/ilyanyrkov/Technopark_C-C-_solutions/project/source/work_with_bin.c
 
 CMakeFiles/count_predicate_occur_parallel.dir/project/source/work_with_bin.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/count_predicate_occur_parallel.dir/project/source/work_with_bin.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/source/work_with_bin.c > CMakeFiles/count_predicate_occur_parallel.dir/project/source/work_with_bin.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ilyanyrkov/Technopark_C-C-_solutions/project/source/work_with_bin.c > CMakeFiles/count_predicate_occur_parallel.dir/project/source/work_with_bin.c.i
 
 CMakeFiles/count_predicate_occur_parallel.dir/project/source/work_with_bin.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/count_predicate_occur_parallel.dir/project/source/work_with_bin.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/source/work_with_bin.c -o CMakeFiles/count_predicate_occur_parallel.dir/project/source/work_with_bin.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ilyanyrkov/Technopark_C-C-_solutions/project/source/work_with_bin.c -o CMakeFiles/count_predicate_occur_parallel.dir/project/source/work_with_bin.c.s
 
 # Object files for target count_predicate_occur_parallel
 count_predicate_occur_parallel_OBJECTS = \
@@ -110,7 +110,7 @@ libcount_predicate_occur_parallel.so: CMakeFiles/count_predicate_occur_parallel.
 libcount_predicate_occur_parallel.so: CMakeFiles/count_predicate_occur_parallel.dir/project/source/work_with_bin.c.o
 libcount_predicate_occur_parallel.so: CMakeFiles/count_predicate_occur_parallel.dir/build.make
 libcount_predicate_occur_parallel.so: CMakeFiles/count_predicate_occur_parallel.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/cmake-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C shared library libcount_predicate_occur_parallel.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C shared library libcount_predicate_occur_parallel.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/count_predicate_occur_parallel.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -123,6 +123,6 @@ CMakeFiles/count_predicate_occur_parallel.dir/clean:
 .PHONY : CMakeFiles/count_predicate_occur_parallel.dir/clean
 
 CMakeFiles/count_predicate_occur_parallel.dir/depend:
-	cd /home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/cmake-build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ilyanyrkov/Technopark_C-C-_solutions/hw_2 /home/ilyanyrkov/Technopark_C-C-_solutions/hw_2 /home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/cmake-build /home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/cmake-build /home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/cmake-build/CMakeFiles/count_predicate_occur_parallel.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ilyanyrkov/Technopark_C-C-_solutions /home/ilyanyrkov/Technopark_C-C-_solutions /home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build /home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build /home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles/count_predicate_occur_parallel.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/count_predicate_occur_parallel.dir/depend
 

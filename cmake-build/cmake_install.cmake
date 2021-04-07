@@ -1,4 +1,4 @@
-# Install script for directory: /home/ilyanyrkov/Technopark_C-C-_solutions/hw_2
+# Install script for directory: /home/ilyanyrkov/Technopark_C-C-_solutions
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/cmake-build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

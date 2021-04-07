@@ -34,7 +34,7 @@ stdio.h
 error_msg.h
 ../project/include/error_msg.h
 
-/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/source/main.c
+/home/ilyanyrkov/Technopark_C-C-_solutions/project/source/main.c
 stdio.h
 -
 getopt.h
@@ -42,9 +42,9 @@ getopt.h
 string.h
 -
 config.h
-/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/source/config.h
+/home/ilyanyrkov/Technopark_C-C-_solutions/project/source/config.h
 error_msg.h
-/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/source/error_msg.h
+/home/ilyanyrkov/Technopark_C-C-_solutions/project/source/error_msg.h
 count_predicate.h
-/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/source/count_predicate.h
+/home/ilyanyrkov/Technopark_C-C-_solutions/project/source/count_predicate.h
 

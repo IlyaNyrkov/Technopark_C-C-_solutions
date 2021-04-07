@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/source/error_msg.c" "/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/cmake-build/CMakeFiles/count_predicate_occur_sequential.dir/project/source/error_msg.c.o"
-  "/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/source/sequential_predicate.c" "/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/cmake-build/CMakeFiles/count_predicate_occur_sequential.dir/project/source/sequential_predicate.c.o"
-  "/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/source/work_with_bin.c" "/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/cmake-build/CMakeFiles/count_predicate_occur_sequential.dir/project/source/work_with_bin.c.o"
+  "/home/ilyanyrkov/Technopark_C-C-_solutions/project/source/error_msg.c" "/home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles/count_predicate_occur_sequential.dir/project/source/error_msg.c.o"
+  "/home/ilyanyrkov/Technopark_C-C-_solutions/project/source/sequential_predicate.c" "/home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles/count_predicate_occur_sequential.dir/project/source/sequential_predicate.c.o"
+  "/home/ilyanyrkov/Technopark_C-C-_solutions/project/source/work_with_bin.c" "/home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles/count_predicate_occur_sequential.dir/project/source/work_with_bin.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

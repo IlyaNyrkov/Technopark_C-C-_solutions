@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ilyanyrkov/Technopark_C-C-_solutions/hw_2
+CMAKE_SOURCE_DIR = /home/ilyanyrkov/Technopark_C-C-_solutions
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/cmake-build
+CMAKE_BINARY_DIR = /home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -91,9 +91,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/cmake-build/CMakeFiles /home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/cmake-build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles /home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/cmake-build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -133,19 +133,6 @@ test_parallel: cmake_check_build_system
 test_parallel/fast:
 	$(MAKE) -f CMakeFiles/test_parallel.dir/build.make CMakeFiles/test_parallel.dir/build
 .PHONY : test_parallel/fast
-
-#=============================================================================
-# Target rules for targets named stress_test
-
-# Build rule for target.
-stress_test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 stress_test
-.PHONY : stress_test
-
-# fast build rule for target.
-stress_test/fast:
-	$(MAKE) -f CMakeFiles/stress_test.dir/build.make CMakeFiles/stress_test.dir/build
-.PHONY : stress_test/fast
 
 #=============================================================================
 # Target rules for targets named parallel
@@ -362,33 +349,6 @@ project/source/work_with_bin.c.s:
 	$(MAKE) -f CMakeFiles/count_predicate_occur_sequential.dir/build.make CMakeFiles/count_predicate_occur_sequential.dir/project/source/work_with_bin.c.s
 .PHONY : project/source/work_with_bin.c.s
 
-project/test/stresstesting.o: project/test/stresstesting.cpp.o
-
-.PHONY : project/test/stresstesting.o
-
-# target to build an object file
-project/test/stresstesting.cpp.o:
-	$(MAKE) -f CMakeFiles/stress_test.dir/build.make CMakeFiles/stress_test.dir/project/test/stresstesting.cpp.o
-.PHONY : project/test/stresstesting.cpp.o
-
-project/test/stresstesting.i: project/test/stresstesting.cpp.i
-
-.PHONY : project/test/stresstesting.i
-
-# target to preprocess a source file
-project/test/stresstesting.cpp.i:
-	$(MAKE) -f CMakeFiles/stress_test.dir/build.make CMakeFiles/stress_test.dir/project/test/stresstesting.cpp.i
-.PHONY : project/test/stresstesting.cpp.i
-
-project/test/stresstesting.s: project/test/stresstesting.cpp.s
-
-.PHONY : project/test/stresstesting.s
-
-# target to generate assembly for a file
-project/test/stresstesting.cpp.s:
-	$(MAKE) -f CMakeFiles/stress_test.dir/build.make CMakeFiles/stress_test.dir/project/test/stresstesting.cpp.s
-.PHONY : project/test/stresstesting.cpp.s
-
 project/test/unit_testing.o: project/test/unit_testing.cpp.o
 
 .PHONY : project/test/unit_testing.o
@@ -429,7 +389,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... test"
 	@echo "... test_parallel"
-	@echo "... stress_test"
 	@echo "... parallel"
 	@echo "... sequential"
 	@echo "... test_sequential"
@@ -450,9 +409,6 @@ help:
 	@echo "... project/source/work_with_bin.o"
 	@echo "... project/source/work_with_bin.i"
 	@echo "... project/source/work_with_bin.s"
-	@echo "... project/test/stresstesting.o"
-	@echo "... project/test/stresstesting.i"
-	@echo "... project/test/stresstesting.s"
 	@echo "... project/test/unit_testing.o"
 	@echo "... project/test/unit_testing.i"
 	@echo "... project/test/unit_testing.s"

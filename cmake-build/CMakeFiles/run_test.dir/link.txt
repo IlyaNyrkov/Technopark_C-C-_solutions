@@ -1,1 +1,0 @@
-/usr/bin/c++  -pthread -Wall -Werror -Wpedantic -fprofile-arcs -ftest-coverage   CMakeFiles/run_test.dir/project/test/unit_testing.cpp.o  -o run_test  -Wl,-rpath,/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/cmake-build -ldl -lgtest -lgcov libcount_predicate_occur_sequential.a libcount_predicate_occur_parallel.so 

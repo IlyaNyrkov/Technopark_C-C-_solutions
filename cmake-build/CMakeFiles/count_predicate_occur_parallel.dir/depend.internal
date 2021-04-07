@@ -3,14 +3,14 @@
 
 CMakeFiles/count_predicate_occur_parallel.dir/project/source/error_msg.c.o
  ../project/include/error_msg.h
- /home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/source/error_msg.c
+ /home/ilyanyrkov/Technopark_C-C-_solutions/project/source/error_msg.c
 CMakeFiles/count_predicate_occur_parallel.dir/project/source/parallel_predicate.c.o
  ../project/include/config.h
  ../project/include/count_predicate.h
  ../project/include/error_msg.h
  ../project/include/work_with_bin.h
- /home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/source/parallel_predicate.c
+ /home/ilyanyrkov/Technopark_C-C-_solutions/project/source/parallel_predicate.c
 CMakeFiles/count_predicate_occur_parallel.dir/project/source/work_with_bin.c.o
  ../project/include/error_msg.h
  ../project/include/work_with_bin.h
- /home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/source/work_with_bin.c
+ /home/ilyanyrkov/Technopark_C-C-_solutions/project/source/work_with_bin.c
