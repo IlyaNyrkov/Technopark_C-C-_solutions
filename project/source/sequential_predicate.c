@@ -2,11 +2,8 @@
 #include <stdio.h>
 
 int count_predicate_occurance(unsigned long *res_sum, size_t size, int* elements, int (*predicate)(const int*)) {
-    if (elements == NULL) {
-        printf("stream issue\n\n");
-    }
     if (res_sum == NULL || elements == NULL || predicate == NULL) {
-        return INPUT_ERR;
+        return WRONG_DATA_ERR;
     }
     
     if (size == 0) {
