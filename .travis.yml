@@ -20,7 +20,6 @@ before_script:
   - sudo cmake CMakeLists.txt
   - sudo make
   - sudo cp *.a /usr/lib
-  - cd "${TRAVIS_BUILD_DIR}"
   - cmake .
   - make
 
@@ -30,6 +29,6 @@ script:
   - cppcheck --enable=warning,performance,portability,style --language=c++ ./parallel 
   - cppcheck --enable=warning,performance,portability,style --language=c++ ./sequential 
   - ./stress
-  - cd "${TRAVIS_BUILD_DIR}"
+  - cd hw_2
 after_success:
   - bash <(curl -s https://codecov.io/bash)
