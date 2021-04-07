@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../project/include/error_msg.h
+stdio.h
+-
+
+/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/test/stresstesting.cpp
+gtest/gtest.h
+/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/test/gtest/gtest.h
+dlfcn.h
+/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/test/dlfcn.h
+error_msg.h
+/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/project/test/error_msg.h
+

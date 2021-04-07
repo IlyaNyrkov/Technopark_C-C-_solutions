@@ -1,0 +1,1 @@
+/usr/bin/c++  -pthread -Wall -Werror -Wpedantic -fprofile-arcs -ftest-coverage   CMakeFiles/test_parallel.dir/project/test/unit_testing.cpp.o CMakeFiles/test_parallel.dir/project/source/parallel_predicate.c.o  -o test_parallel  -Wl,-rpath,/home/ilyanyrkov/Technopark_C-C-_solutions/hw_2/cmake-build /usr/lib/x86_64-linux-gnu/libgtest.a libcount_predicate_occur_parallel.so 

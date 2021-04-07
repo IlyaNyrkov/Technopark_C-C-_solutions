@@ -14,12 +14,12 @@ addons:
       - valgrind
       - cppcheck
 before_script:
-  - cd hw_2
   - sudo apt-get install -y libgtest-dev
   - cd /usr/src/gtest
   - sudo cmake CMakeLists.txt
   - sudo make
   - sudo cp *.a /usr/lib
+  - cd "${TRAVIS_BUILD_DIR}"
   - cmake .
   - make
 
@@ -27,8 +27,8 @@ script:
   - valgrind --track-origins=yes --leak-check=full ./test_naive
   - valgrind --track-origins=yes --leak-check=full ./test_parallel
   - cppcheck --enable=warning,performance,portability,style --language=c++ ./parallel 
-  - cppcheck --enable=warning,performance,portability,style --language=c++ ./sequential 
+  - cppcheck --enable=warning,performance,portability,style --language=c++ ./naive 
   - ./stress
-  - cd hw_2
+  - cd "${TRAVIS_BUILD_DIR}"
 after_success:
   - bash <(curl -s https://codecov.io/bash)
