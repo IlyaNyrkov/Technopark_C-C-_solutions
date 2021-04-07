@@ -95,6 +95,7 @@ test_parallel: CMakeFiles/test_parallel.dir/project/test/unit_testing.cpp.o
 test_parallel: CMakeFiles/test_parallel.dir/project/source/parallel_predicate.c.o
 test_parallel: CMakeFiles/test_parallel.dir/build.make
 test_parallel: /usr/lib/x86_64-linux-gnu/libgtest.a
+test_parallel: /usr/lib/x86_64-linux-gnu/libgtest.a
 test_parallel: libcount_predicate_occur_parallel.so
 test_parallel: CMakeFiles/test_parallel.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable test_parallel"
