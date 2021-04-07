@@ -1,143 +1,63 @@
-cmake_minimum_required(VERSION 3.16)
-set(PROJECT untitled)
-project(${PROJECT})
+cmake_minimum_required(VERSION 3.8)
+project(transposition_matrix)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_C_FLAGS "-pthread  -Wall -Werror -Wpedantic -fprofile-arcs -ftest-coverage")
+set(CMAKE_CXX_FLAGS "-pthread -Wall -Werror -Wpedantic -fprofile-arcs -ftest-coverage")
+SET(MYCOMPILE_FLAGS "-std=c11")
 
-# ---------- Using files -----------
-set (HEADERS
-        ERRORS/error_msg.h
-        File_Work/work_with_bin.h
-        interface/interface.h
-        )
+include_directories(project/include)
 
-set (SOURCES
-        ERRORS/error_msg.c
-        File_Work/work_with_bin.c
-        interface/interface.c
-        )
+add_library(count_predicate_occur_sequential STATIC
+    project/source/sequential_predicate.c
+    project/source/error_msg.c
+    project/include/error_msg.h
+    project/include/count_predicate.h
+    project/include/work_with_bin.h
+    project/source/work_with_bin.c
+    )
 
-
-# ---------- Compiling flags ----------
-# Release flags
-set(RELEASE_CXX_FLAGS "-std=c++14 -Wall -Werror -pedantic")
-set(RELEASE_C_FLAGS "-std=c99 -Wall -Werror -pedantic")
-# Debug flags
-set(DEBUG_CXX_FLAGS "-std=c++14 -pthread -g3")
-set(DEBUG_C_FLAGS "-std=c99 -pthread -g3")
-
-set(CMAKE_CXX_OUTPUT_EXTENSION 1)
-add_compile_options(-pthread)
+add_library(count_predicate_occur_parallel SHARED
+    project/source/parallel_predicate.c
+    project/source/error_msg.c
+    project/include/error_msg.h
+    project/include/work_with_bin.h
+    project/source/work_with_bin.c
+    )
 
 
-# ---------  Options ---------
-# Type lib
-option(BUILD_STATIC_LIBS "Build the static library" ON)
-option(BUILD_SHARED_LIBS "Build the shared library" ON)
+add_executable(sequential
+    project/source/main.c)
+
+add_executable(parallel
+    project/source/main.c)
 
 
-# -------- Build lib ---------
-# Static lib
-if (BUILD_STATIC_LIBS MATCHES ON)
-    message(STATUS "Type lib : STATIC LIB")
-    add_library(count_predicate_sequential STATIC
-            CalculatePredicate/sequential_predicate.h
-            CalculatePredicate/sequential_predicate.c
-            )
-    target_include_directories(count_predicate_sequential PRIVATE "${PROJECT_SOURCE_DIR}")
-endif()
-
-if (BUILD_SHARED_LIBS MATCHES ON)
-    message(STATUS "Type lib : SHARED LIB")
-    include(GenerateExportHeader)
-    add_library(count_predicate_parallel SHARED
-            CalculatePredicate/parallel_predicate.h
-            CalculatePredicate/parallel_predicate.c
-            )
-    target_include_directories(count_predicate_parallel PRIVATE "${PROJECT_SOURCE_DIR}")
-endif()
+target_link_libraries(sequential count_predicate_occur_sequential)
+target_link_libraries(parallel count_predicate_occur_parallel)
 
 
-# ---------- Build target -----------
-# Choice target
-file(GLOB SRC_FILES
-        "${CMAKE_CURRENT_SOURCE_DIR}"
-        "${CMAKE_CURRENT_SOURCE_DIR}/Tests"
-        )
+enable_testing()
 
-message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
-if (CMAKE_BUILD_TYPE MATCHES Debug)
-    # Set flags
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${DEBUG_CXX_FLAGS}")
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${DEBUG_C_FLAGS}")
+find_package(GTest REQUIRED)
+include_directories(${GTEST_INCLUDE_DIR})
+message(${GTEST_LIBRARIES})
 
-    add_executable (${PROJECT}
-            main.c
-            ${SOURCES}
-            )
+add_executable(stress_test
+	project/test/stresstesting.cpp
+	)
 
-    TARGET_LINK_LIBRARIES(${PROJECT}
-            sum_array_parallel
-            sum_array_sequential
-            )
+add_executable(test_sequential
+	project/test/unit_testing.cpp
+	project/source/sequential_predicate.c
+	)
+	
+add_executable(test_parallel
+	project/test/unit_testing.cpp
+	project/source/parallel_predicate.c
+	)
 
-elseif (CMAKE_BUILD_TYPE MATCHES Test)
-
-    if (CMAKE_VERSION VERSION_LESS 3.2)
-        set(UPDATE_DISCONNECTED_IF_AVAILABLE "")
-    else()
-        set(UPDATE_DISCONNECTED_IF_AVAILABLE "UPDATE_DISCONNECTED 1")
-    endif()
-
-
-    include(DownloadProject.cmake)
-    download_project(PROJ                googletest
-            GIT_REPOSITORY      https://github.com/google/googletest.git
-            GIT_TAG             master
-            ${UPDATE_DISCONNECTED_IF_AVAILABLE}
-            )
-
-    set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-
-    add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR})
-
-    if (CMAKE_VERSION VERSION_LESS 2.8.11)
-        include_directories("${gtest_SOURCE_DIR}/include"
-                "${gmock_SOURCE_DIR}/include")
-    endif()
-
-    # Set flags
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${DEBUG_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${DEBUG_C_FLAGS} -fprofile-arcs -ftest-coverage")
-
-
-    add_executable(${PROJECT}
-            test/launch_tests_main.cpp
-            test/unit_testing.cpp
-            test/stresstesting.cpp
-            ${SOURCES}
-            )
-
-    target_link_libraries(${PROJECT}
-            gtest
-            gmock_main
-            gcov
-            count_predicate_sequential
-            count_predicate_parallel
-            )
-
-    add_test(run_tests run_tests)
-
-elseif (CMAKE_BUILD_TYPE MATCHES Release)
-    # Set flags
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${RELEASE_CXX_FLAGS}")
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${RELEASE_C_FLAGS}")
-
-    add_executable (${PROJECT}
-            main.c
-            ${SOURCES}
-            )
-endif ()
-
-# Include project directories
-target_include_directories(${PROJECT} PUBLIC "${PROJECT_SOURCE_DIR}")
+target_link_libraries(stress_test ${GTEST_LIBRARIES} dl count_predicate_occur_sequential count_predicate_occur_parallel)
+target_link_libraries(test_sequential ${GTEST_LIBRARIES} count_predicate_occur_sequential)
+target_link_libraries(test_parallel ${GTEST_LIBRARIES} count_predicate_occur_parallel)
