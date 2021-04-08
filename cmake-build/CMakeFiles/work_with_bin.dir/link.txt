@@ -1,2 +1,0 @@
-/usr/bin/ar qc libwork_with_bin.a  CMakeFiles/work_with_bin.dir/project/source/work_with_bin.c.o
-/usr/bin/ranlib libwork_with_bin.a

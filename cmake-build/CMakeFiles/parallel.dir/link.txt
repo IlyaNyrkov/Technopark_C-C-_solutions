@@ -1,1 +1,0 @@
-/usr/bin/cc -pthread  -Wall -Werror -Wpedantic -fprofile-arcs -ftest-coverage   CMakeFiles/parallel.dir/project/source/main.c.o  -o parallel  -Wl,-rpath,/home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build libcount_predicate_occur_parallel.so 

@@ -1,2 +1,0 @@
-/usr/bin/ar qc libcount_predicate_occur_sequential.a  CMakeFiles/count_predicate_occur_sequential.dir/project/source/sequential_predicate.c.o CMakeFiles/count_predicate_occur_sequential.dir/project/source/error_msg.c.o CMakeFiles/count_predicate_occur_sequential.dir/project/source/work_with_bin.c.o
-/usr/bin/ranlib libcount_predicate_occur_sequential.a
