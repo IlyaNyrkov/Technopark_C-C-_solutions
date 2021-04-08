@@ -135,6 +135,19 @@ test_parallel/fast:
 .PHONY : test_parallel/fast
 
 #=============================================================================
+# Target rules for targets named stress_test
+
+# Build rule for target.
+stress_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 stress_test
+.PHONY : stress_test
+
+# fast build rule for target.
+stress_test/fast:
+	$(MAKE) -f CMakeFiles/stress_test.dir/build.make CMakeFiles/stress_test.dir/build
+.PHONY : stress_test/fast
+
+#=============================================================================
 # Target rules for targets named parallel
 
 # Build rule for target.
@@ -295,6 +308,7 @@ project/source/sequential_predicate.o: project/source/sequential_predicate.c.o
 
 # target to build an object file
 project/source/sequential_predicate.c.o:
+	$(MAKE) -f CMakeFiles/stress_test.dir/build.make CMakeFiles/stress_test.dir/project/source/sequential_predicate.c.o
 	$(MAKE) -f CMakeFiles/test_sequential.dir/build.make CMakeFiles/test_sequential.dir/project/source/sequential_predicate.c.o
 	$(MAKE) -f CMakeFiles/count_predicate_occur_sequential.dir/build.make CMakeFiles/count_predicate_occur_sequential.dir/project/source/sequential_predicate.c.o
 .PHONY : project/source/sequential_predicate.c.o
@@ -305,6 +319,7 @@ project/source/sequential_predicate.i: project/source/sequential_predicate.c.i
 
 # target to preprocess a source file
 project/source/sequential_predicate.c.i:
+	$(MAKE) -f CMakeFiles/stress_test.dir/build.make CMakeFiles/stress_test.dir/project/source/sequential_predicate.c.i
 	$(MAKE) -f CMakeFiles/test_sequential.dir/build.make CMakeFiles/test_sequential.dir/project/source/sequential_predicate.c.i
 	$(MAKE) -f CMakeFiles/count_predicate_occur_sequential.dir/build.make CMakeFiles/count_predicate_occur_sequential.dir/project/source/sequential_predicate.c.i
 .PHONY : project/source/sequential_predicate.c.i
@@ -315,6 +330,7 @@ project/source/sequential_predicate.s: project/source/sequential_predicate.c.s
 
 # target to generate assembly for a file
 project/source/sequential_predicate.c.s:
+	$(MAKE) -f CMakeFiles/stress_test.dir/build.make CMakeFiles/stress_test.dir/project/source/sequential_predicate.c.s
 	$(MAKE) -f CMakeFiles/test_sequential.dir/build.make CMakeFiles/test_sequential.dir/project/source/sequential_predicate.c.s
 	$(MAKE) -f CMakeFiles/count_predicate_occur_sequential.dir/build.make CMakeFiles/count_predicate_occur_sequential.dir/project/source/sequential_predicate.c.s
 .PHONY : project/source/sequential_predicate.c.s
@@ -348,6 +364,33 @@ project/source/work_with_bin.c.s:
 	$(MAKE) -f CMakeFiles/count_predicate_occur_parallel.dir/build.make CMakeFiles/count_predicate_occur_parallel.dir/project/source/work_with_bin.c.s
 	$(MAKE) -f CMakeFiles/count_predicate_occur_sequential.dir/build.make CMakeFiles/count_predicate_occur_sequential.dir/project/source/work_with_bin.c.s
 .PHONY : project/source/work_with_bin.c.s
+
+project/test/stresstesting.o: project/test/stresstesting.cpp.o
+
+.PHONY : project/test/stresstesting.o
+
+# target to build an object file
+project/test/stresstesting.cpp.o:
+	$(MAKE) -f CMakeFiles/stress_test.dir/build.make CMakeFiles/stress_test.dir/project/test/stresstesting.cpp.o
+.PHONY : project/test/stresstesting.cpp.o
+
+project/test/stresstesting.i: project/test/stresstesting.cpp.i
+
+.PHONY : project/test/stresstesting.i
+
+# target to preprocess a source file
+project/test/stresstesting.cpp.i:
+	$(MAKE) -f CMakeFiles/stress_test.dir/build.make CMakeFiles/stress_test.dir/project/test/stresstesting.cpp.i
+.PHONY : project/test/stresstesting.cpp.i
+
+project/test/stresstesting.s: project/test/stresstesting.cpp.s
+
+.PHONY : project/test/stresstesting.s
+
+# target to generate assembly for a file
+project/test/stresstesting.cpp.s:
+	$(MAKE) -f CMakeFiles/stress_test.dir/build.make CMakeFiles/stress_test.dir/project/test/stresstesting.cpp.s
+.PHONY : project/test/stresstesting.cpp.s
 
 project/test/unit_testing.o: project/test/unit_testing.cpp.o
 
@@ -389,6 +432,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... test"
 	@echo "... test_parallel"
+	@echo "... stress_test"
 	@echo "... parallel"
 	@echo "... sequential"
 	@echo "... test_sequential"
@@ -409,6 +453,9 @@ help:
 	@echo "... project/source/work_with_bin.o"
 	@echo "... project/source/work_with_bin.i"
 	@echo "... project/source/work_with_bin.s"
+	@echo "... project/test/stresstesting.o"
+	@echo "... project/test/stresstesting.i"
+	@echo "... project/test/stresstesting.s"
 	@echo "... project/test/unit_testing.o"
 	@echo "... project/test/unit_testing.i"
 	@echo "... project/test/unit_testing.s"

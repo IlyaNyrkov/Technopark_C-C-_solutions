@@ -16,7 +16,8 @@ void fillArr(size_t size, int* elements, FILE* stream) {
 
 TEST(test_predecate_count, test_10k_nums) {
     FILE* stream = fopen("../project/TestFilesBin/test_10k.bin", "rd");
-    int* elements = (int*)malloc(10000 * sizeof(int));
+    int* elements = NULL;
+    elements = (int*)malloc(10000 * sizeof(int));
     fillArr(10000, elements, stream);
     unsigned long result = 1591;
     unsigned long count = 0;
@@ -73,8 +74,6 @@ TEST(test_predecate_count, NULL_PARAMETERS) {
     count = NULL;
     ASSERT_EQ(count_predicate_occurance(count, 1000000, elements, less157), WRONG_DATA_ERR);
 }
-
-
 
 int main(int argc, char *argv[]) {
     ::testing::InitGoogleTest(&argc, argv);
