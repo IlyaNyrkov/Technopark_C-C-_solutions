@@ -97,16 +97,6 @@ int wait_threads(const pthread_t *threads, size_t thread_count) {
     return EVERYTHING_IS_OK;
 }
 
-int predicate(const int* elem) {
-    if (elem == NULL) {
-        return WRONG_DATA_ERR;
-    }
-    if (*elem < 157) {
-        return 1;
-    }
-    return 0;
-}
-
 int count_predicate_occurance(unsigned long *res_sum, size_t size, int* elements, int (*predicate)(const int*)) {
     if (res_sum == NULL || elements == NULL) {
         return WRONG_DATA_ERR;
