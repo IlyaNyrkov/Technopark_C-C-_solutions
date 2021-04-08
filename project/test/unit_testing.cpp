@@ -22,7 +22,7 @@ void fillArr(size_t size, int* elements, FILE* stream) {
 }
 
 TEST(test_predecate_count, test_10k_nums) {
-    FILE* stream = fopen("../project/TestFilesBin/test_10k.bin", "rd");
+    FILE* stream = fopen("project/TestFilesBin/test_10k.bin", "rd");
     int* elements = NULL;
     elements = (int*)malloc(10000 * sizeof(int));
     fillArr(10000, elements, stream);
@@ -35,7 +35,7 @@ TEST(test_predecate_count, test_10k_nums) {
 }
 
 TEST(test_predecate_count, test_100k_nums) {
-    FILE* stream = fopen("../project/TestFilesBin/test_100k.bin", "rd");
+    FILE* stream = fopen("project/TestFilesBin/test_100k.bin", "rd");
     int* elements = NULL;
     elements = (int*)malloc(100000 * sizeof(int));
     fillArr(100000, elements, stream);
@@ -48,7 +48,7 @@ TEST(test_predecate_count, test_100k_nums) {
 }
 
 TEST(test_predecate_count, test_500k_nums) {
-    FILE* stream = fopen("../project/TestFilesBin/test_500k.bin", "rd");
+    FILE* stream = fopen("project/TestFilesBin/test_500k.bin", "rd");
     int* elements = NULL;
     elements = (int*)malloc(500000 * sizeof(int));
     fillArr(500000, elements, stream);
@@ -61,7 +61,7 @@ TEST(test_predecate_count, test_500k_nums) {
 }
 
 TEST(test_predecate_count, test_1million_nums) {
-    FILE* stream = fopen("../project/TestFilesBin/test_1mil.bin", "rd");
+    FILE* stream = fopen("project/TestFilesBin/test_1mil.bin", "rd");
     int* elements = NULL;
     elements = (int*)malloc(1000000 * sizeof(int));
     fillArr(1000000, elements, stream);

@@ -33,7 +33,7 @@ TEST(stress_test, testing_10k_numbers) {
     int (*count_predicate_occur)(unsigned long *res_sum, size_t size,
     int* stream, int (*predicate)(const int*));
     *(void **)(&count_predicate_occur) = dlsym(library, "count_predicate_occurance");
-    FILE* stream = fopen("../project/TestFilesBin/test_10k.bin", "rb");
+    FILE* stream = fopen("project/TestFilesBin/test_10k.bin", "rb");
     int* elements = (int *)malloc(10000 * sizeof(int));
     fillArr(10000, elements, stream);
 
@@ -56,7 +56,7 @@ TEST(stress_test, testing_100k_numbers) {
     int (*count_predicate_occur)(unsigned long *res_sum, size_t size,
     int* stream, int (*predicate)(const int*));
     *(void **)(&count_predicate_occur) = dlsym(library, "count_predicate_occurance");
-    FILE* stream = fopen("../project/TestFilesBin/test_10k.bin", "rb");
+    FILE* stream = fopen("project/TestFilesBin/test_10k.bin", "rb");
     int* elements = (int *)malloc(100000 * sizeof(int));
     fillArr(100000, elements, stream);
 
@@ -79,7 +79,7 @@ TEST(stress_test, testing_500k_numbers) {
     int (*count_predicate_occur)(unsigned long *res_sum, size_t size,
     int* stream, int (*predicate)(const int*));
     *(void **)(&count_predicate_occur) = dlsym(library, "count_predicate_occurance");
-    FILE* stream = fopen("../project/TestFilesBin/test_500k.bin", "rb");
+    FILE* stream = fopen("project/TestFilesBin/test_500k.bin", "rb");
     int* elements = (int *)malloc(500000 * sizeof(int));
     fillArr(500000, elements, stream);
     
@@ -102,7 +102,7 @@ TEST(stress_test, testing_1mil_numbers) {
     int (*count_predicate_occur)(unsigned long *res_sum, size_t size,
     int* stream, int (*predicate)(const int*));
     *(void **)(&count_predicate_occur) = dlsym(library, "count_predicate_occurance");
-    FILE* stream = fopen("../project/TestFilesBin/test_1mil.bin", "rb");
+    FILE* stream = fopen("project/TestFilesBin/test_1mil.bin", "rb");
     int* elements = (int *)malloc(1000000 * sizeof(int));
     fillArr(1000000, elements, stream);
 
