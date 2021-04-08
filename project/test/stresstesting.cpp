@@ -93,6 +93,7 @@ TEST(stress_test, testing_1mil_numbers) {
     void* library = dlopen("libcount_predicate_occur_parallel.so", RTLD_LAZY);
     int (*count_predicate_occur)(unsigned long *res_sum, size_t size,
     int* stream, int (*predicate)(const int*));
+    *(void **)(&count_predicate_occur) = dlsym(library, "count_predicate_occurance");
     FILE* stream = fopen("../project/TestFilesBin/test_1mil.bin", "rb");
     int* elements = (int *)malloc(1000000 * sizeof(int));
     fillArr(1000000, elements, stream);
