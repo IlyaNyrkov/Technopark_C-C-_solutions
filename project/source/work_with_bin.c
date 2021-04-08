@@ -16,3 +16,15 @@ int get_number_from_pos(int* number, size_t id, FILE* stream) {
 
     return EVERYTHING_IS_OK; 
 }
+
+int fillArr(size_t size, int* elements, FILE* stream) {
+    if (stream == NULL || stream == NULL) {
+        return WRONG_DATA_ERR;
+    }
+    int buffer;
+    for (size_t i = 0; i < size; i++) {
+        fread(&buffer, sizeof(int), 1, stream);
+        elements[i] = buffer;
+    }
+    return EVERYTHING_IS_OK;
+}

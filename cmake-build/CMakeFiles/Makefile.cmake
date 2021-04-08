@@ -59,5 +59,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/sequential.dir/DependInfo.cmake"
   "CMakeFiles/test_sequential.dir/DependInfo.cmake"
   "CMakeFiles/count_predicate_occur_parallel.dir/DependInfo.cmake"
+  "CMakeFiles/work_with_bin.dir/DependInfo.cmake"
   "CMakeFiles/count_predicate_occur_sequential.dir/DependInfo.cmake"
   )

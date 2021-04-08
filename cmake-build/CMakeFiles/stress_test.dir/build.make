@@ -97,6 +97,7 @@ stress_test: CMakeFiles/stress_test.dir/build.make
 stress_test: libcount_predicate_occur_sequential.a
 stress_test: libcount_predicate_occur_parallel.so
 stress_test: /usr/lib/x86_64-linux-gnu/libgtest.a
+stress_test: libwork_with_bin.a
 stress_test: CMakeFiles/stress_test.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable stress_test"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/stress_test.dir/link.txt --verbose=$(VERBOSE)

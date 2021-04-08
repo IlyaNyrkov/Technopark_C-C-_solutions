@@ -18,6 +18,11 @@ add_library(count_predicate_occur_sequential STATIC
     project/source/work_with_bin.c
     )
 
+add_library(work_with_bin STATIC
+    project/source/work_with_bin.c
+    project/include/work_with_bin.h
+    )
+
 add_library(count_predicate_occur_parallel SHARED
     project/source/parallel_predicate.c
     project/source/error_msg.c
@@ -59,8 +64,8 @@ add_executable(test_parallel
 	project/source/parallel_predicate.c
 	)
 
-target_link_libraries(stress_test dl count_predicate_occur_sequential count_predicate_occur_parallel ${GTEST_LIBRARIES})
-target_link_libraries(test_sequential ${GTEST_LIBRARIES} count_predicate_occur_sequential)
-target_link_libraries(test_parallel ${GTEST_LIBRARIES} count_predicate_occur_parallel)
+target_link_libraries(stress_test dl count_predicate_occur_sequential count_predicate_occur_parallel ${GTEST_LIBRARIES} work_with_bin)
+target_link_libraries(test_sequential ${GTEST_LIBRARIES} count_predicate_occur_sequential work_with_bin)
+target_link_libraries(test_parallel ${GTEST_LIBRARIES} count_predicate_occur_parallel work_with_bin)
 
 

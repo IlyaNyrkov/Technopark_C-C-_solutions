@@ -34,10 +34,6 @@ stdio.h
 error_msg.h
 ../project/include/error_msg.h
 
-/home/ilyanyrkov/Technopark_C-C-_solutions/project/source/error_msg.c
-error_msg.h
-/home/ilyanyrkov/Technopark_C-C-_solutions/project/source/error_msg.h
-
 /home/ilyanyrkov/Technopark_C-C-_solutions/project/source/parallel_predicate.c
 count_predicate.h
 /home/ilyanyrkov/Technopark_C-C-_solutions/project/source/count_predicate.h

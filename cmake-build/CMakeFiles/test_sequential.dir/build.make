@@ -96,6 +96,7 @@ test_sequential: CMakeFiles/test_sequential.dir/project/source/sequential_predic
 test_sequential: CMakeFiles/test_sequential.dir/build.make
 test_sequential: /usr/lib/x86_64-linux-gnu/libgtest.a
 test_sequential: libcount_predicate_occur_sequential.a
+test_sequential: libwork_with_bin.a
 test_sequential: CMakeFiles/test_sequential.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable test_sequential"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_sequential.dir/link.txt --verbose=$(VERBOSE)

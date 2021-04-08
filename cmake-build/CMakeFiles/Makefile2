@@ -59,6 +59,7 @@ all: CMakeFiles/parallel.dir/all
 all: CMakeFiles/sequential.dir/all
 all: CMakeFiles/test_sequential.dir/all
 all: CMakeFiles/count_predicate_occur_parallel.dir/all
+all: CMakeFiles/work_with_bin.dir/all
 all: CMakeFiles/count_predicate_occur_sequential.dir/all
 
 .PHONY : all
@@ -75,6 +76,7 @@ clean: CMakeFiles/parallel.dir/clean
 clean: CMakeFiles/sequential.dir/clean
 clean: CMakeFiles/test_sequential.dir/clean
 clean: CMakeFiles/count_predicate_occur_parallel.dir/clean
+clean: CMakeFiles/work_with_bin.dir/clean
 clean: CMakeFiles/count_predicate_occur_sequential.dir/clean
 
 .PHONY : clean
@@ -84,6 +86,7 @@ clean: CMakeFiles/count_predicate_occur_sequential.dir/clean
 
 # All Build rule for target.
 CMakeFiles/test_parallel.dir/all: CMakeFiles/count_predicate_occur_parallel.dir/all
+CMakeFiles/test_parallel.dir/all: CMakeFiles/work_with_bin.dir/all
 	$(MAKE) -f CMakeFiles/test_parallel.dir/build.make CMakeFiles/test_parallel.dir/depend
 	$(MAKE) -f CMakeFiles/test_parallel.dir/build.make CMakeFiles/test_parallel.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles --progress-num=16,17,18 "Built target test_parallel"
@@ -91,7 +94,7 @@ CMakeFiles/test_parallel.dir/all: CMakeFiles/count_predicate_occur_parallel.dir/
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_parallel.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles 9
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test_parallel.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles 0
 .PHONY : CMakeFiles/test_parallel.dir/rule
@@ -111,6 +114,7 @@ CMakeFiles/test_parallel.dir/clean:
 
 # All Build rule for target.
 CMakeFiles/stress_test.dir/all: CMakeFiles/count_predicate_occur_parallel.dir/all
+CMakeFiles/stress_test.dir/all: CMakeFiles/work_with_bin.dir/all
 CMakeFiles/stress_test.dir/all: CMakeFiles/count_predicate_occur_sequential.dir/all
 	$(MAKE) -f CMakeFiles/stress_test.dir/build.make CMakeFiles/stress_test.dir/depend
 	$(MAKE) -f CMakeFiles/stress_test.dir/build.make CMakeFiles/stress_test.dir/build
@@ -119,7 +123,7 @@ CMakeFiles/stress_test.dir/all: CMakeFiles/count_predicate_occur_sequential.dir/
 
 # Build rule for subdir invocation for target.
 CMakeFiles/stress_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles 13
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/stress_test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles 0
 .PHONY : CMakeFiles/stress_test.dir/rule
@@ -192,6 +196,7 @@ CMakeFiles/sequential.dir/clean:
 # Target rules for target CMakeFiles/test_sequential.dir
 
 # All Build rule for target.
+CMakeFiles/test_sequential.dir/all: CMakeFiles/work_with_bin.dir/all
 CMakeFiles/test_sequential.dir/all: CMakeFiles/count_predicate_occur_sequential.dir/all
 	$(MAKE) -f CMakeFiles/test_sequential.dir/build.make CMakeFiles/test_sequential.dir/depend
 	$(MAKE) -f CMakeFiles/test_sequential.dir/build.make CMakeFiles/test_sequential.dir/build
@@ -200,7 +205,7 @@ CMakeFiles/test_sequential.dir/all: CMakeFiles/count_predicate_occur_sequential.
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_sequential.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles 9
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test_sequential.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles 0
 .PHONY : CMakeFiles/test_sequential.dir/rule
@@ -241,6 +246,33 @@ count_predicate_occur_parallel: CMakeFiles/count_predicate_occur_parallel.dir/ru
 CMakeFiles/count_predicate_occur_parallel.dir/clean:
 	$(MAKE) -f CMakeFiles/count_predicate_occur_parallel.dir/build.make CMakeFiles/count_predicate_occur_parallel.dir/clean
 .PHONY : CMakeFiles/count_predicate_occur_parallel.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/work_with_bin.dir
+
+# All Build rule for target.
+CMakeFiles/work_with_bin.dir/all:
+	$(MAKE) -f CMakeFiles/work_with_bin.dir/build.make CMakeFiles/work_with_bin.dir/depend
+	$(MAKE) -f CMakeFiles/work_with_bin.dir/build.make CMakeFiles/work_with_bin.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles --progress-num=22,23 "Built target work_with_bin"
+.PHONY : CMakeFiles/work_with_bin.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/work_with_bin.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/work_with_bin.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilyanyrkov/Technopark_C-C-_solutions/cmake-build/CMakeFiles 0
+.PHONY : CMakeFiles/work_with_bin.dir/rule
+
+# Convenience name for target.
+work_with_bin: CMakeFiles/work_with_bin.dir/rule
+
+.PHONY : work_with_bin
+
+# clean rule for target.
+CMakeFiles/work_with_bin.dir/clean:
+	$(MAKE) -f CMakeFiles/work_with_bin.dir/build.make CMakeFiles/work_with_bin.dir/clean
+.PHONY : CMakeFiles/work_with_bin.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/count_predicate_occur_sequential.dir

@@ -200,6 +200,19 @@ count_predicate_occur_parallel/fast:
 .PHONY : count_predicate_occur_parallel/fast
 
 #=============================================================================
+# Target rules for targets named work_with_bin
+
+# Build rule for target.
+work_with_bin: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 work_with_bin
+.PHONY : work_with_bin
+
+# fast build rule for target.
+work_with_bin/fast:
+	$(MAKE) -f CMakeFiles/work_with_bin.dir/build.make CMakeFiles/work_with_bin.dir/build
+.PHONY : work_with_bin/fast
+
+#=============================================================================
 # Target rules for targets named count_predicate_occur_sequential
 
 # Build rule for target.
@@ -342,6 +355,7 @@ project/source/work_with_bin.o: project/source/work_with_bin.c.o
 # target to build an object file
 project/source/work_with_bin.c.o:
 	$(MAKE) -f CMakeFiles/count_predicate_occur_parallel.dir/build.make CMakeFiles/count_predicate_occur_parallel.dir/project/source/work_with_bin.c.o
+	$(MAKE) -f CMakeFiles/work_with_bin.dir/build.make CMakeFiles/work_with_bin.dir/project/source/work_with_bin.c.o
 	$(MAKE) -f CMakeFiles/count_predicate_occur_sequential.dir/build.make CMakeFiles/count_predicate_occur_sequential.dir/project/source/work_with_bin.c.o
 .PHONY : project/source/work_with_bin.c.o
 
@@ -352,6 +366,7 @@ project/source/work_with_bin.i: project/source/work_with_bin.c.i
 # target to preprocess a source file
 project/source/work_with_bin.c.i:
 	$(MAKE) -f CMakeFiles/count_predicate_occur_parallel.dir/build.make CMakeFiles/count_predicate_occur_parallel.dir/project/source/work_with_bin.c.i
+	$(MAKE) -f CMakeFiles/work_with_bin.dir/build.make CMakeFiles/work_with_bin.dir/project/source/work_with_bin.c.i
 	$(MAKE) -f CMakeFiles/count_predicate_occur_sequential.dir/build.make CMakeFiles/count_predicate_occur_sequential.dir/project/source/work_with_bin.c.i
 .PHONY : project/source/work_with_bin.c.i
 
@@ -362,6 +377,7 @@ project/source/work_with_bin.s: project/source/work_with_bin.c.s
 # target to generate assembly for a file
 project/source/work_with_bin.c.s:
 	$(MAKE) -f CMakeFiles/count_predicate_occur_parallel.dir/build.make CMakeFiles/count_predicate_occur_parallel.dir/project/source/work_with_bin.c.s
+	$(MAKE) -f CMakeFiles/work_with_bin.dir/build.make CMakeFiles/work_with_bin.dir/project/source/work_with_bin.c.s
 	$(MAKE) -f CMakeFiles/count_predicate_occur_sequential.dir/build.make CMakeFiles/count_predicate_occur_sequential.dir/project/source/work_with_bin.c.s
 .PHONY : project/source/work_with_bin.c.s
 
@@ -437,6 +453,7 @@ help:
 	@echo "... sequential"
 	@echo "... test_sequential"
 	@echo "... count_predicate_occur_parallel"
+	@echo "... work_with_bin"
 	@echo "... count_predicate_occur_sequential"
 	@echo "... project/source/error_msg.o"
 	@echo "... project/source/error_msg.i"
