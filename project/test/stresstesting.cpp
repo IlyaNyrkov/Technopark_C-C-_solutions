@@ -8,12 +8,20 @@ int less157(const int* elem)  {
 }
 
 void fillArr(size_t size, int* elements, FILE* stream) {
+    if (stream == NULL) {
+        std::cout << "wrong stream\n";
+        if (elements == NULL) {
+            std::cout << "wrong array\n";
+        }
+        return;
+    }
     int buffer;
     for (size_t i = 0; i < size; i++) {
     fread(&buffer, sizeof(int), 1, stream);
     elements[i] = buffer;
     }
 }
+
 
 TEST(stress_test, testing_10k_numbers) {
 
