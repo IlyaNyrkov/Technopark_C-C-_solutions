@@ -14,7 +14,7 @@ add_executable(hw-1
     project/include/CheckInput.h
     project/include/Person.h 
     project/src/main.c)
-target_link_libraries(prog study_std_lib)
+target_link_libraries(hw-1 study_std_lib)
 
 
 enable_testing()
