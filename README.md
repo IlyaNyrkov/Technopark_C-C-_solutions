@@ -1,2 +1,1 @@
-# Technopark_C-C-_solutions
-Нырков Илья (АПО-12). Решения домашних заданий по курсу технопарка углублённое программирование на C/C++
+# Some assignments from <img src="https://raw.githubusercontent.com/IlyaNyrkov/IlyaNyrkov/master/bmstu_logo.png" width="35px"> Bauman Moscow State University & <img src="https://raw.githubusercontent.com/IlyaNyrkov/IlyaNyrkov/master/vk_logo.png" width="35px"> VK project "Technopark" course "Advanced C/C++ programming"
