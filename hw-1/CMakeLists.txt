@@ -10,7 +10,7 @@ SET(MYCOMPILE_FLAGS "-std=c11")
 set(LIB_SOURCE_FILES project/src/Person.c project/src/CheckInput.c)
 add_library(study_std_lib STATIC ${LIB_SOURCE_FILES})
 include_directories(project/include)
-add_executable(prog
+add_executable(hw-1
     project/include/CheckInput.h
     project/include/Person.h 
     project/src/main.c)

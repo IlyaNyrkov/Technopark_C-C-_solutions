@@ -1,4 +1,8 @@
-Вариант 43
-Создать структуру для хранения информации о заинтересованных сторонах проекта: их роли
- (заказчик, покупатель, разработчик и пр.), наименовании или имени, степени влияния и
- т.д.Составить с ее использованием программу вывода информации обо всех заинтересованных лицах, наиболее соответствующих заданным пользователем критериям.
+# Task
+Create struct for storing information about **project members**: <br /> 
+- their roles: client, buyer, developer, etc
+- name
+- surname
+- level of importance <br />
+
+Develop program using this struct for information output about all project members most appropriate for user-specified criteria.
