@@ -41,7 +41,10 @@ int main(int argc, char* argv[]) {
             scanf("%79s", person_buffer);
         } while (parse_person_data(person_buffer, name, surname, role, &importance_level) ==
             WRONG_PERSON_DATA_ERR);
-            add_person_info(&people[i], name, role, surname, importance_level);
+            if (add_person_info(&people[i], name, role, surname, importance_level) == ADD_PERSON_DATA_ERR) {
+                printf("Error adding person");
+            }
+            show_person_info(&people[i]);
     }
     free(person_buffer);
     person_buffer = NULL;
@@ -57,6 +60,16 @@ int main(int argc, char* argv[]) {
         printf("Enter your search criteria: Format is name;surname;role\n");
         scanf("%79s", command_buffer);
     } while (parse_command(command_buffer, name, surname, role) == WRONG_COMMAND_ERR);
+    if (strcmp(name, "\n") == 0) {
+        strncpy(name, "empty", 5);
+    }
+    if (strcmp(surname, "\n") == 0) {
+        strncpy(surname, "empty", 5);
+    }
+    if (strcmp(role, "\n") == 0) {
+       strncpy(role, "empty", 5);
+    }
+    printf("Searching people with criterea: name=%s, surname=%s, role=%s\n----------------------\n", name, surname, role);
     show_info_depending(people, n, name, surname, role);
     free(people);
     people = NULL;
@@ -90,6 +103,8 @@ int show_info_depending(Person* people, size_t n, char name[NAME_SIZE],
     }
     if (elem_cnt == 0) {
         printf("No people found with name: %s surname: %s, role: %s\n", name, surname, role);
+    } else {
+        printf("Total people found count: %d\n", elem_cnt);
     }
     return 0;
 }

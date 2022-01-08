@@ -41,9 +41,6 @@ int add_person_info(Person* person, char name[NAME_SIZE], char role[ROLE_SIZE],
     if (person == NULL || name == NULL || role == NULL || surname == NULL) {
         return ADD_PERSON_DATA_ERR;
     }
-    if (person->name == NULL || person->surname == NULL || person->role) {
-        return ADD_PERSON_DATA_ERR;
-    }
     if (snprintf(person->name, sizeof(person->name), "%s", name) < 0) {
         return ADD_PERSON_DATA_ERR;
     }
@@ -69,9 +66,9 @@ int add_person_info(Person* person, char name[NAME_SIZE], char role[ROLE_SIZE],
 // |1|0| 1 |
 // |1|1| 0 |
 int check_person(Person* people, char name[NAME_SIZE], char surname[SURNAME_SIZE], char role[ROLE_SIZE]) {
-    if ( ( (strcmp(people->role, role) == 0) + (strcmp(role, "\n") == 0) ) % 2 &&
-            ( (strcmp(people->name, name) == 0) + (strcmp(name, "\n") == 0) ) % 2 &&
-            ( (strcmp(people->surname, surname) == 0) + (strcmp(surname, "\n") == 0) ) % 2) {
+    if ( ( (strcmp(people->role, role) == 0) + (strcmp(role, "empty") == 0) ) % 2 &&
+            ( (strcmp(people->name, name) == 0) + (strcmp(name, "empty") == 0) ) % 2 &&
+            ( (strcmp(people->surname, surname) == 0) + (strcmp(surname, "empty") == 0) ) % 2) {
                 return 0;
             }
     return NO_PERSON_FOUND;
