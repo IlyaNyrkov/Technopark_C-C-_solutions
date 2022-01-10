@@ -1,4 +1,5 @@
 #include "gtest/gtest.h"
+
 extern "C" {
     #include "Person.h"
     #include "CheckInput.h"
@@ -80,7 +81,7 @@ TEST(person_add_data, null_person) {
     ASSERT_EQ(add_person_info(person, name, role, surname, 100), ADD_PERSON_DATA_ERR);
 }
 
-TEST(person_add_data, null_fields_person) {
+TEST(person_add_data, null_fields_person) {    
     Person* person = (Person*)malloc(sizeof(Person));
     person->name = NULL;
     person->surname = NULL;
@@ -244,12 +245,12 @@ TEST(Parse_command, correct_input) {
 
 TEST(Parse_command, first_parameter_missing) {
     char command_line[CMD_LINE_SIZE] = ";Nyrkov;Developer";
-    char name_res[NAME_SIZE] = "\n";
+    char name_res[NAME_SIZE] = "empty";
     char surname_res[SURNAME_SIZE] = "Nyrkov";
     char role_res[ROLE_SIZE] = "Developer";
-    char name[NAME_SIZE] = "\n";
-    char surname[SURNAME_SIZE] = "\n";
-    char role[ROLE_SIZE] = "\n";
+    char name[NAME_SIZE] = "empty";
+    char surname[SURNAME_SIZE] = "empty";
+    char role[ROLE_SIZE] = "empty";
     EXPECT_TRUE(parse_command(command_line, name, surname, role) == 0);
     EXPECT_TRUE((strcmp(name, name_res) == 0) && (strcmp(surname, surname_res) == 0) &&
         (strcmp(role, role_res) == 0));
@@ -258,11 +259,11 @@ TEST(Parse_command, first_parameter_missing) {
 TEST(Parse_command, second_parameter_missing) {
     char command_line[CMD_LINE_SIZE] = "Ilya;;Developer";
     char name_res[NAME_SIZE] = "Ilya";
-    char surname_res[SURNAME_SIZE] = "\n";
+    char surname_res[SURNAME_SIZE] = "empty";
     char role_res[ROLE_SIZE] = "Developer";
-    char name[NAME_SIZE] = "\n";
-    char surname[SURNAME_SIZE] = "\n";
-    char role[ROLE_SIZE] = "\n";
+    char name[NAME_SIZE] = "empty";
+    char surname[SURNAME_SIZE] = "empty";
+    char role[ROLE_SIZE] = "empty";
     EXPECT_TRUE(parse_command(command_line, name, surname, role) == 0);
     EXPECT_TRUE((strcmp(name, name_res) == 0) && (strcmp(surname, surname_res) == 0) &&
         (strcmp(role, role_res) == 0));
@@ -272,10 +273,10 @@ TEST(Parse_command, third_parameter_missing) {
     char command_line[CMD_LINE_SIZE] = "Ilya;Nyrkov;";
     char name_res[NAME_SIZE] = "Ilya";
     char surname_res[SURNAME_SIZE] = "Nyrkov";
-    char role_res[ROLE_SIZE] = "\n";
-    char name[NAME_SIZE] = "\n";
-    char surname[SURNAME_SIZE] = "\n";
-    char role[ROLE_SIZE] = "\n";
+    char role_res[ROLE_SIZE] = "empty";
+    char name[NAME_SIZE] = "empty";
+    char surname[SURNAME_SIZE] = "empty";
+    char role[ROLE_SIZE] = "empty";
     EXPECT_TRUE(parse_command(command_line, name, surname, role) == 0);
     EXPECT_TRUE((strcmp(name, name_res) == 0) && (strcmp(surname, surname_res) == 0) &&
         (strcmp(role, role_res) == 0));
@@ -283,25 +284,25 @@ TEST(Parse_command, third_parameter_missing) {
 
 TEST(parse_command, cat_on_keyboard_1) {
     char command_line[CMD_LINE_SIZE] = "ahnwyjr4%th/stna54ntterhfb";
-    char name[NAME_SIZE] = "\n";
-    char surname[SURNAME_SIZE] = "\n";
-    char role[ROLE_SIZE] = "\n";
+    char name[NAME_SIZE] = "empty";
+    char surname[SURNAME_SIZE] = "empty";
+    char role[ROLE_SIZE] = "empty";
     ASSERT_EQ(parse_command(command_line,name, surname, role), WRONG_COMMAND_ERR);
 }
 
 TEST(parse_command, cat_on_keyboard_2) {
     char command_line[CMD_LINE_SIZE] = "ahnw]dfeg|4%th/stna54ntterhfb";
-    char name[NAME_SIZE] = "\n";
-    char surname[SURNAME_SIZE] = "\n";
-    char role[ROLE_SIZE] = "\n";
+    char name[NAME_SIZE] = "empty";
+    char surname[SURNAME_SIZE] = "empty";
+    char role[ROLE_SIZE] = "empty";
     ASSERT_EQ(parse_command(command_line,name, surname, role), WRONG_COMMAND_ERR);
 }
 
 TEST(parse_command, empty) {
     char command_line[CMD_LINE_SIZE] = "";
-    char name[NAME_SIZE] = "\n";
-    char surname[SURNAME_SIZE] = "\n";
-    char role[ROLE_SIZE] = "\n";
+    char name[NAME_SIZE] = "empty";
+    char surname[SURNAME_SIZE] = "empty";
+    char role[ROLE_SIZE] = "empty";
     ASSERT_EQ(parse_command(command_line,name, surname, role), WRONG_COMMAND_ERR);
 }
 
@@ -314,9 +315,9 @@ TEST(Check_person, no_parameters) {
     strcpy(person.surname, "Nyrkov");
     strcpy(person.role, "Developer");
     person.importance = 100;
-    char empty_name[NAME_SIZE] = "\n";
-    char empty_surname[SURNAME_SIZE] = "\n";
-    char empty_role[ROLE_SIZE] = "\n";
+    char empty_name[NAME_SIZE] = "empty";
+    char empty_surname[SURNAME_SIZE] = "empty";
+    char empty_role[ROLE_SIZE] = "empty";
     EXPECT_TRUE(check_person(&person, empty_name, empty_surname, empty_role) == 0);
     free(person.name);
     free(person.surname);
@@ -332,8 +333,8 @@ TEST(Check_person, not_all_parameters) {
     strcpy(person.surname, "Nyrkov");
     strcpy(person.role, "Developer");
     person.importance = 100;
-    char empty_name[NAME_SIZE] = "\n";
-    char empty_surname[SURNAME_SIZE] = "\n";
+    char empty_name[NAME_SIZE] = "empty";
+    char empty_surname[SURNAME_SIZE] = "empty";
     char role[ROLE_SIZE] = "Developer";
     char role2[ROLE_SIZE] = "Manager";
     char surname[SURNAME_SIZE] = "Nyrkov";

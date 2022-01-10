@@ -2,7 +2,7 @@
 ![](https://img.shields.io/badge/OS-Linux-informational?style=flat&logo=linux&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/Code-C-informational?style=flat&logo=c&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/Code-C++-informational?style=flat&logo=cplusplus&logoColor=white&color=2bbc8a)
-![](https://img.shields.io/badge/Testing-C++_Gtest-informational?style=flat&logo=textpattern&logoColor=white&color=2bbc8a)
+![](https://img.shields.io/badge/Testing-Gtest-informational?style=flat&logo=textpattern&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/Tools-CMake-informational?style=flat&logo=cmake&logoColor=white&color=2bbc8a)
 
 # How to build and run

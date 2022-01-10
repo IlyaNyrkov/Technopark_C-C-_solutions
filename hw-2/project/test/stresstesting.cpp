@@ -10,10 +10,9 @@ int less157(const int* elem)  {
 
 TEST(stress_test, testing_10k_numbers) {
 
-    
     void* library = dlopen("libcount_predicate_occur_parallel.so", RTLD_LAZY);
     if (library == NULL) {
-        std::cout << "\n dlib problem\n";
+        std::cout << "\n dlib problem" << std::endl;
     }
     int (*count_predicate_occur)(unsigned long *res_sum, size_t size,
     int* stream, int (*predicate)(const int*));

@@ -41,6 +41,9 @@ int add_person_info(Person* person, char name[NAME_SIZE], char role[ROLE_SIZE],
     if (person == NULL || name == NULL || role == NULL || surname == NULL) {
         return ADD_PERSON_DATA_ERR;
     }
+    if (person->name == NULL || person->role == NULL || person->surname == NULL) {
+        return ADD_PERSON_DATA_ERR;
+    }
     if (snprintf(person->name, sizeof(person->name), "%s", name) < 0) {
         return ADD_PERSON_DATA_ERR;
     }
